@@ -28,7 +28,7 @@
         
         /* Header cu imagine Moș Crăciun */
         header {
-            background: linear-gradient(rgba(220, 0, 0, 0.85), rgba(180, 0, 0, 0.9)), 
+            background: linear-gradient(rgba(220, 0, 0, 0.9), rgba(170, 0, 0, 0.96)), 
                         url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="500" viewBox="0 0 1200 500"><defs><pattern id="snow" patternUnits="userSpaceOnUse" width="50" height="50"><circle cx="25" cy="25" r="2" fill="white" opacity="0.7"/></pattern></defs><rect width="1200" height="500" fill="%23b80000"/><rect width="1200" height="500" fill="url(%23snow)"/><path d="M300,200 Q500,100 700,200 T1100,200" stroke="%23fff" stroke-width="3" fill="none" opacity="0.3"/><path d="M250,250 Q450,150 650,250 T1050,250" stroke="%23fff" stroke-width="3" fill="none" opacity="0.3"/><path d="M200,300 Q400,200 600,300 T1000,300" stroke="%23fff" stroke-width="3" fill="none" opacity="0.3"/></svg>');
             background-size: cover;
             background-position: center;
@@ -159,7 +159,7 @@
             position: absolute;
             right: 5%;
             bottom: 0;
-            max-width: 320px;
+            max-width: 340px;
             z-index: 1;
             transform: translateY(35px);
         }
@@ -171,14 +171,9 @@
             filter: drop-shadow(0 12px 24px rgba(0,0,0,0.5));
         }
 
-        @media (max-width: 900px) {
+        @media (max-width: 1024px) {
             .header-visual {
-                display: none;
-            }
-            .hero {
-                text-align: center;
-                max-width: 800px;
-                margin: 0 auto;
+                max-width: 280px;
             }
         }
 
@@ -197,6 +192,7 @@
             gap: 10px;
             color: #b00000;
             font-size: 0.9rem;
+            text-align: center;
         }
         .live-dot {
             width: 8px;
@@ -690,82 +686,183 @@
             }
         }
 
-        /* Responsive */
+        /* Responsive – mobil top */
         @media (max-width: 768px) {
+
+            header {
+                padding: 18px 0 40px;
+            }
+
             .header-content {
                 flex-direction: column;
-                gap: 20px;
+                align-items: flex-start;
+                gap: 16px;
             }
-            
+
+            .logo {
+                justify-content: center;
+                width: 100%;
+            }
+
+            nav {
+                width: 100%;
+            }
+
             nav ul {
                 flex-wrap: wrap;
                 justify-content: center;
-                gap: 15px;
+                gap: 8px;
             }
-            
-            .hero h2 {
-                font-size: 32px;
-                text-align: center;
+
+            nav a {
+                padding: 6px 12px;
+                font-size: 13px;
+                background-color: rgba(255,255,255,0.08);
             }
-            
-            .hero p {
-                font-size: 18px;
-                text-align: center;
+
+            .nav-cta {
+                font-size: 13px;
+                padding: 7px 14px !important;
             }
-            
+
             .hero {
                 text-align: center;
+                padding: 10px 6px 0;
+                max-width: 100%;
             }
-            
-            .steps, .packages, .testimonials {
-                flex-direction: column;
-                align-items: center;
+
+            .hero h2 {
+                font-size: 26px;
+                line-height: 1.2;
+                margin-bottom: 12px;
             }
-            
-            .step, .package, .testimonial {
-                width: 100%;
-                max-width: 400px;
+
+            .hero p {
+                font-size: 15px;
+                line-height: 1.5;
+                margin-bottom: 18px;
             }
-            
-            .package-recommended {
-                transform: scale(1);
+
+            .btn {
+                font-size: 15px;
+                padding: 11px 22px;
             }
-            
-            .package-recommended:hover {
-                transform: translateY(-10px);
+
+            /* Ascundem poza mare cu Moșul pe mobil */
+            .header-visual {
+                display: none !important;
             }
-            
+
             section {
-                padding: 60px 0;
+                padding: 55px 0;
+            }
+
+            .section-title h2 {
+                font-size: 26px;
+            }
+
+            .section-title p {
+                font-size: 16px;
+                padding: 0 10px;
+            }
+
+            .steps {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .step {
+                padding: 25px 18px;
+            }
+
+            .step h3 {
+                font-size: 19px;
+            }
+
+            .step p {
+                font-size: 14px;
+            }
+
+            .packages {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .package {
+                max-width: 100%;
+                width: 100%;
+            }
+
+            .package-header h3 {
+                font-size: 22px;
+            }
+
+            .package-price {
+                font-size: 32px;
+            }
+
+            .package-features li {
+                font-size: 14px;
+                padding: 9px 0;
+            }
+
+            /* pe mobil scoatem scale-ul si glow-ul ca sa stea frumos în coloană */
+            .package-recommended {
+                transform: none;
+                animation: none;
+                box-shadow: 0 8px 20px rgba(192, 0, 0, 0.35);
+            }
+
+            .testimonials {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .testimonial {
+                max-width: 100%;
+            }
+
+            .live-banner-inner {
+                padding: 8px 12px;
+                font-size: 0.8rem;
+            }
+
+            .snowflake {
+                opacity: 0.6;
+                font-size: 12px !important;
+            }
+
+            footer {
+                padding: 35px 0 20px;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 24px;
             }
         }
-        
+
         @media (max-width: 480px) {
-            .logo {
-                flex-direction: column;
-                text-align: center;
-                gap: 10px;
-            }
-            
+
             .hero h2 {
-                font-size: 28px;
+                font-size: 24px;
             }
-            
+
             .hero p {
-                font-size: 18px;
+                font-size: 14px;
             }
-            
+
             .btn {
-                padding: 12px 25px;
-                font-size: 16px;
+                font-size: 14px;
+                padding: 10px 20px;
             }
-            
+
             .section-title h2 {
-                font-size: 28px;
+                font-size: 24px;
             }
-            
+
             .section-title p {
-                font-size: 18px;
+                font-size: 15px;
             }
         }
     </style>
@@ -795,7 +892,7 @@
       <span class="snowflake" style="left:95%; font-size:16px; animation-duration:16s; animation-delay:0.3s;">❆</span>
     </div>
 
-    <!-- Sunet discret la scroll (adaugi jingle.mp3 în folder) -->
+    <!-- Sunet discret la scroll (și pe mobil) -->
     <audio id="scroll-sound" src="jingle.mp3" preload="auto"></audio>
 
     <!-- Header cu imagine Mos Craciun -->
@@ -1077,14 +1174,15 @@
             });
         });
 
-        // Sunet discret la primul scroll
+        // Sunet discret la primul scroll (desktop + mobil)
         let soundPlayed = false;
         window.addEventListener('scroll', () => {
             if (soundPlayed) return;
-            if (window.scrollY > 100) {
+            if (window.scrollY > 120) {
                 const audio = document.getElementById('scroll-sound');
                 if (audio) {
-                    audio.volume = 0.25;
+                    // volum puțin mai mic ca să nu fie agresiv pe telefon
+                    audio.volume = 0.18;
                     audio.play().catch(() => {});
                 }
                 soundPlayed = true;
