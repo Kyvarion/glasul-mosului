@@ -1,0 +1,1095 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glasul Moșului – Mesaje video personalizate de la Moș Crăciun</title>
+    <style>
+        /* Reset și stiluri de bază */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial Rounded MT Bold', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #fff;
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header cu imagine Moș Crăciun */
+        header {
+            background: linear-gradient(rgba(220, 0, 0, 0.85), rgba(180, 0, 0, 0.9)), 
+                        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="500" viewBox="0 0 1200 500"><defs><pattern id="snow" patternUnits="userSpaceOnUse" width="50" height="50"><circle cx="25" cy="25" r="2" fill="white" opacity="0.7"/></pattern></defs><rect width="1200" height="500" fill="%23b80000"/><rect width="1200" height="500" fill="url(%23snow)"/><path d="M300,200 Q500,100 700,200 T1100,200" stroke="%23fff" stroke-width="3" fill="none" opacity="0.3"/><path d="M250,250 Q450,150 650,250 T1050,250" stroke="%23fff" stroke-width="3" fill="none" opacity="0.3"/><path d="M200,300 Q400,200 600,300 T1000,300" stroke="%23fff" stroke-width="3" fill="none" opacity="0.3"/></svg>');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 20px 0 80px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header-overlay {
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at top, rgba(255,255,255,0.12), transparent 55%);
+            pointer-events: none;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo-icon {
+            font-size: 40px;
+            filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.3));
+        }
+        
+        .logo-text h1 {
+            font-size: 28px;
+            margin-bottom: 5px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .logo-text p {
+            font-size: 16px;
+            opacity: 0.95;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            padding: 8px 15px;
+            border-radius: 20px;
+        }
+        
+        nav a:hover {
+            background-color: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
+        }
+        
+        .nav-cta {
+            background-color: white;
+            color: #c00 !important;
+            padding: 10px 20px !important;
+            border-radius: 25px;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+        
+        .nav-cta:hover {
+            background-color: #ffebee !important;
+            transform: translateY(-3px) !important;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.3) !important;
+        }
+        
+        /* Hero Section */
+        .hero {
+            text-align: left;
+            padding: 40px 0 60px;
+            max-width: 600px;
+            margin: 0;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero h2 {
+            font-size: 42px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            line-height: 1.2;
+        }
+        
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            opacity: 0.95;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: white;
+            color: #c00;
+            padding: 15px 35px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 18px;
+            transition: all 0.3s;
+            border: 2px solid white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .btn:hover {
+            background-color: #c00;
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+
+        /* Poză Moș Crăciun în header */
+        .header-visual {
+            position: absolute;
+            right: 5%;
+            bottom: 0;
+            max-width: 320px;
+            z-index: 1;
+            transform: translateY(35px);
+        }
+
+        .header-visual img {
+            width: 100%;
+            height: auto;
+            display: block;
+            filter: drop-shadow(0 12px 24px rgba(0,0,0,0.5));
+        }
+
+        @media (max-width: 900px) {
+            .header-visual {
+                display: none;
+            }
+            .hero {
+                text-align: center;
+                max-width: 800px;
+                margin: 0 auto;
+            }
+        }
+
+        /* Banner livrare instant activă */
+        .live-banner {
+            background: #fff4f4;
+            border-bottom: 1px solid #f3c0c0;
+        }
+        .live-banner-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 8px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            color: #b00000;
+            font-size: 0.9rem;
+        }
+        .live-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #2dff89;
+            box-shadow: 0 0 0 0 rgba(45,255,137,0.8);
+            animation: pulseDot 1.4s infinite;
+        }
+        @keyframes pulseDot {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(45,255,137,0.8);
+            }
+            70% {
+                transform: scale(1.5);
+                box-shadow: 0 0 0 8px rgba(45,255,137,0);
+            }
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(45,255,137,0);
+            }
+        }
+        
+        /* Sections */
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 36px;
+            color: #c00;
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: #c00;
+            border-radius: 2px;
+        }
+        
+        .section-title p {
+            font-size: 20px;
+            max-width: 700px;
+            margin: 0 auto;
+            color: #666;
+        }
+        
+        /* Cum funcționează */
+        .steps {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+        
+        .step {
+            flex: 1;
+            min-width: 250px;
+            text-align: center;
+            padding: 40px 25px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            background-color: white;
+            border-top: 5px solid #c00;
+            transition: transform 0.3s;
+            position: relative;
+        }
+        
+        .step:hover {
+            transform: translateY(-10px);
+        }
+        
+        .step-number {
+            background-color: #c00;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-weight: bold;
+            font-size: 24px;
+            box-shadow: 0 5px 15px rgba(192, 0, 0, 0.3);
+        }
+        
+        .step h3 {
+            margin-bottom: 15px;
+            color: #c00;
+            font-size: 22px;
+        }
+        
+        .step p {
+            color: #666;
+            font-size: 16px;
+        }
+        
+        /* Pachete */
+        .packages-section {
+            background-color: #f9f9f9;
+        }
+        
+        .packages {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+        
+        .package {
+            flex: 1;
+            min-width: 300px;
+            max-width: 350px;
+            background-color: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border: 2px solid #eee;
+            transition: transform 0.3s;
+            position: relative;
+        }
+        
+        .package:hover {
+            transform: translateY(-10px);
+        }
+
+        /* Header pachet cu imagine + overlay */
+        .package-header {
+            color: white;
+            padding: 25px;
+            text-align: center;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .package-header::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                rgba(200, 0, 0, 0.85),
+                rgba(150, 0, 0, 0.9)
+            );
+        }
+
+        .package-header * {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Imagini diferite pentru fiecare pachet */
+        .basic-bg {
+            background-image: url('mos-basic.jpg');
+        }
+
+        .magic-bg {
+            background-image: url('mos-magic.jpg');
+        }
+
+        .instant-bg {
+            background-image: url('mos-instant.jpg');
+        }
+        
+        .package-header h3 {
+            font-size: 26px;
+            margin-bottom: 10px;
+        }
+        
+        .package-price {
+            font-size: 42px;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        
+        .package-body {
+            padding: 30px;
+        }
+        
+        .package-features {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+        
+        .package-features li {
+            padding: 12px 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+            font-size: 16px;
+        }
+        
+        .package-features li:before {
+            content: "✓";
+            color: #c00;
+            font-weight: bold;
+            margin-right: 10px;
+            font-size: 18px;
+        }
+        
+        .package-recommended {
+            border: 3px solid #c00;
+            transform: scale(1.05);
+            box-shadow: 0 10px 28px rgba(192, 0, 0, 0.45);
+            animation: pulseGlow 3s ease-in-out infinite;
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% {
+                box-shadow: 0 10px 28px rgba(192, 0, 0, 0.45);
+            }
+            50% {
+                box-shadow: 0 16px 40px rgba(192, 0, 0, 0.8);
+            }
+        }
+        
+        .package-recommended:hover {
+            transform: scale(1.05) translateY(-10px);
+        }
+        
+        .recommended-badge {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #c00;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 16px;
+            font-weight: bold;
+            box-shadow: 0 5px 15px rgba(192, 0, 0, 0.3);
+        }
+        
+        .package-btn {
+            display: block;
+            width: 100%;
+            text-align: center;
+            padding: 15px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 18px;
+            transition: all 0.3s;
+            border: 2px solid #c00;
+        }
+        
+        .btn-primary {
+            background-color: #c00;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background-color: #a80000;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(192, 0, 0, 0.3);
+        }
+        
+        .btn-secondary {
+            background-color: white;
+            color: #c00;
+        }
+        
+        .btn-secondary:hover {
+            background-color: #f9f9f9;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        /* Testimoniale */
+        .testimonials {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+        }
+        
+        .testimonial {
+            flex: 1;
+            min-width: 300px;
+            max-width: 350px;
+            background-color: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-left: 5px solid #c00;
+            transition: transform 0.3s;
+        }
+        
+        .testimonial:hover {
+            transform: translateY(-5px);
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            font-size: 16px;
+            color: #555;
+            line-height: 1.6;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #c00;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 20px;
+        }
+        
+        .author-info strong {
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        .author-info p {
+            color: #777;
+            font-size: 14px;
+        }
+        
+        /* FAQ */
+        .faq-section {
+            background-color: #f9f9f9;
+        }
+        
+        .faq-item {
+            margin-bottom: 20px;
+            border: 1px solid #eee;
+            border-radius: 10px;
+            overflow: hidden;
+            background-color: white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s;
+        }
+        
+        .faq-item:hover {
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+        
+        .faq-question {
+            background-color: white;
+            padding: 20px;
+            font-weight: bold;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 18px;
+            color: #c00;
+        }
+        
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+        
+        .faq-item.active .faq-answer {
+            padding: 0 20px 20px;
+            max-height: 500px;
+        }
+        
+        .faq-icon {
+            font-size: 20px;
+            transition: transform 0.3s;
+        }
+        
+        .faq-item.active .faq-icon {
+            transform: rotate(45deg);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #c00;
+            color: white;
+            padding: 50px 0 20px;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 20px;
+            font-size: 22px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .footer-section h3:after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: white;
+        }
+        
+        .footer-section p {
+            margin-bottom: 10px;
+            opacity: 0.9;
+        }
+        
+        .footer-section a {
+            color: white;
+            text-decoration: none;
+            opacity: 0.9;
+            transition: opacity 0.3s;
+            display: block;
+            margin-bottom: 8px;
+        }
+        
+        .footer-section a:hover {
+            opacity: 1;
+            text-decoration: underline;
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.2);
+            padding-top: 20px;
+            text-align: center;
+            font-size: 14px;
+            opacity: 0.8;
+        }
+        
+        /* Fulgi de zăpadă animați – DENS */
+        .snow {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 999;
+        }
+
+        .snowflake {
+            position: absolute;
+            top: -10vh;
+            color: #fff;
+            opacity: 0.9;
+            animation-name: snowfall;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+        }
+
+        @keyframes snowfall {
+            0% {
+                transform: translateY(-10vh) translateX(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(110vh) translateX(40px);
+                opacity: 0;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+            
+            .hero h2 {
+                font-size: 32px;
+                text-align: center;
+            }
+            
+            .hero p {
+                font-size: 18px;
+                text-align: center;
+            }
+            
+            .hero {
+                text-align: center;
+            }
+            
+            .steps, .packages, .testimonials {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .step, .package, .testimonial {
+                width: 100%;
+                max-width: 400px;
+            }
+            
+            .package-recommended {
+                transform: scale(1);
+            }
+            
+            .package-recommended:hover {
+                transform: translateY(-10px);
+            }
+            
+            section {
+                padding: 60px 0;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .logo {
+                flex-direction: column;
+                text-align: center;
+                gap: 10px;
+            }
+            
+            .hero h2 {
+                font-size: 28px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+            
+            .btn {
+                padding: 12px 25px;
+                font-size: 16px;
+            }
+            
+            .section-title h2 {
+                font-size: 28px;
+            }
+            
+            .section-title p {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Fulgi de zăpadă -->
+    <div class="snow">
+      <span class="snowflake" style="left:3%;  font-size:12px; animation-duration:12s; animation-delay:0s;">❄</span>
+      <span class="snowflake" style="left:8%;  font-size:16px; animation-duration:16s; animation-delay:2s;">❆</span>
+      <span class="snowflake" style="left:12%; font-size:10px; animation-duration:10s; animation-delay:4s;">❄</span>
+      <span class="snowflake" style="left:18%; font-size:18px; animation-duration:18s; animation-delay:1s;">✻</span>
+      <span class="snowflake" style="left:22%; font-size:14px; animation-duration:14s; animation-delay:3s;">❆</span>
+      <span class="snowflake" style="left:26%; font-size:20px; animation-duration:20s; animation-delay:5s;">❄</span>
+      <span class="snowflake" style="left:30%; font-size:12px; animation-duration:13s; animation-delay:1.5s;">✼</span>
+      <span class="snowflake" style="left:35%; font-size:18px; animation-duration:19s; animation-delay:2.5s;">❆</span>
+      <span class="snowflake" style="left:40%; font-size:14px; animation-duration:15s; animation-delay:0.5s;">❄</span>
+      <span class="snowflake" style="left:45%; font-size:22px; animation-duration:22s; animation-delay:4.5s;">✻</span>
+      <span class="snowflake" style="left:50%; font-size:16px; animation-duration:17s; animation-delay:3s;">❆</span>
+      <span class="snowflake" style="left:55%; font-size:13px; animation-duration:13s; animation-delay:1s;">❄</span>
+      <span class="snowflake" style="left:60%; font-size:21px; animation-duration:21s; animation-delay:5s;">✼</span>
+      <span class="snowflake" style="left:65%; font-size:15px; animation-duration:16s; animation-delay:2s;">❆</span>
+      <span class="snowflake" style="left:70%; font-size:19px; animation-duration:19s; animation-delay:0.8s;">❄</span>
+      <span class="snowflake" style="left:75%; font-size:12px; animation-duration:12s; animation-delay:3.5s;">✻</span>
+      <span class="snowflake" style="left:80%; font-size:20px; animation-duration:20s; animation-delay:1.8s;">❆</span>
+      <span class="snowflake" style="left:85%; font-size:14px; animation-duration:14s; animation-delay:4.2s;">❄</span>
+      <span class="snowflake" style="left:90%; font-size:22px; animation-duration:22s; animation-delay:2.7s;">✼</span>
+      <span class="snowflake" style="left:95%; font-size:16px; animation-duration:16s; animation-delay:0.3s;">❆</span>
+    </div>
+
+    <!-- Sunet discret la scroll (adaugi jingle.mp3 în folder) -->
+    <audio id="scroll-sound" src="jingle.mp3" preload="auto"></audio>
+
+    <!-- Header cu imagine Mos Craciun -->
+    <header>
+        <div class="header-overlay"></div>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon">🎅</div>
+                    <div class="logo-text">
+                        <h1>Glasul Moșului</h1>
+                        <p>Mesaje video personalizate de la Moș Crăciun</p>
+                    </div>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#cum-functioneaza">Cum funcționează</a></li>
+                        <li><a href="#pachete">Pachete</a></li>
+                        <li><a href="#testimoniale">Testimoniale</a></li>
+                        <li><a href="#faq">Întrebări</a></li>
+                        <li><a href="#pachete" class="nav-cta">Comandă acum</a></li>
+                    </ul>
+                </nav>
+            </div>
+            
+            <div class="hero">
+                <h2>Glasul Moșului ajunge direct la copilul tău</h2>
+                <p>Un mesaj video autentic de la Moș Crăciun, cu numele copilului și detalii reale din viața lui. Emoție pură, exact când ai nevoie.</p>
+                <a href="#pachete" class="btn">Alege pachetul potrivit</a>
+            </div>
+
+            <!-- Poză Moș Crăciun -->
+            <div class="header-visual">
+                <img src="mos-craciun.png" alt="Moș Crăciun">
+            </div>
+        </div>
+    </header>
+
+    <!-- Banner livrare instant -->
+    <div class="live-banner">
+        <div class="live-banner-inner">
+            <span class="live-dot"></span>
+            <span>⚡ Livrare instant activă acum – mesajul copilului tău poate fi gata în 5–15 minute.</span>
+        </div>
+    </div>
+
+    <!-- Cum funcționează -->
+    <section id="cum-functioneaza">
+        <div class="container">
+            <div class="section-title">
+                <h2>Cum funcționează Glasul Moșului</h2>
+                <p>Totul este simplu și gândit să nu îți consume timp. Tu completezi câteva detalii, noi avem grijă ca Moșul să livreze magia.</p>
+            </div>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Alegi pachetul</h3>
+                    <p>Apeși pe pachetul dorit și plătești în siguranță prin Stripe (card bancar).</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Completezi detaliile</h3>
+                    <p>După plată, completezi numele copilului, vârsta și câteva lucruri importante despre el.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Primești video-ul</h3>
+                    <p>În funcție de pachet, primești mesajul în câteva minute sau în cel mult câteva ore.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pachete -->
+    <section id="pachete" class="packages-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Alege câtă magie vrei să aduci</h2>
+                <p>Toate mesajele sunt personalizate. Diferența este în durată, nivelul de detalii și viteza de livrare.</p>
+            </div>
+            <div class="packages">
+                <div class="package">
+                    <div class="package-header basic-bg">
+                        <h3>Basic</h3>
+                        <div class="package-price">39 lei</div>
+                        <p>/ copil</p>
+                    </div>
+                    <div class="package-body">
+                        <ul class="package-features">
+                            <li>Video 30-40 secunde</li>
+                            <li>Numele copilului</li>
+                            <li>Mesaj general de încurajare</li>
+                            <li>Ton cald, specific Crăciunului</li>
+                            <li>Livrare în cel mult 24 de ore</li>
+                        </ul>
+                        <a href="#" class="package-btn btn-secondary">Comandă Basic</a>
+                    </div>
+                </div>
+                
+                <div class="package package-recommended">
+                    <div class="recommended-badge">Recomandat</div>
+                    <div class="package-header magic-bg">
+                        <h3>Magic</h3>
+                        <div class="package-price">79 lei</div>
+                        <p>/ copil</p>
+                    </div>
+                    <div class="package-body">
+                        <ul class="package-features">
+                            <li>Video 60-90 secunde cu Moș Crăciun</li>
+                            <li>Numele copilului rostit clar, de mai multe ori</li>
+                            <li>Detalii din viața lui (hobby-uri, grădiniță, școală)</li>
+                            <li>Ton cald, blând, „ca un bunic”</li>
+                            <li>Livrare în 30-120 de minute</li>
+                        </ul>
+                        <a href="#" class="package-btn btn-primary">Comandă Magic</a>
+                    </div>
+                </div>
+                
+                <div class="package">
+                    <div class="package-header instant-bg">
+                        <h3>Instant</h3>
+                        <div class="package-price">99 lei</div>
+                        <p>/ copil</p>
+                    </div>
+                    <div class="package-body">
+                        <ul class="package-features">
+                            <li>Include toate beneficiile pachetului Magic</li>
+                            <li>Prioritate maximă în coadă</li>
+                            <li>Livrare în 5-15 minute</li>
+                            <li>Perfect pentru momente spontane</li>
+                        </ul>
+                        <a href="#" class="package-btn btn-primary">Comandă Instant</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimoniale -->
+    <section id="testimoniale">
+        <div class="container">
+            <div class="section-title">
+                <h2>Ce spun părinții</h2>
+                <p>Părinți fericiți, copii emoționați</p>
+            </div>
+            <div class="testimonials">
+                <div class="testimonial">
+                    <div class="testimonial-text">
+                        "Am comandat mesajul Magic pentru fiica mea de 5 ani. Când l-a văzut, ochii i s-au făcut mari și a început să zâmbească. A fost cel mai frumos cadou pe care i l-am făcut."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">M</div>
+                        <div class="author-info">
+                            <strong>Mama lui Maria, 5 ani</strong>
+                            <p>Pachet Magic</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial">
+                    <div class="testimonial-text">
+                        "Am luat pachetul Instant pentru că fiul meu tocmai îmi spunea că Moșul nu vine la el. Când a primit mesajul, s-a uitat la mine cu ochii plini de mirare. Mulțumesc!"
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">A</div>
+                        <div class="author-info">
+                            <strong>Tata lui Alex, 7 ani</strong>
+                            <p>Pachet Instant</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial">
+                    <div class="testimonial-text">
+                        "Am făcut mesajul Basic pentru nepoții mei. Au fost atât de încântați să își audă numele din gura Moșului! O experiență unică pe care o vom păstra pentru totdeauna."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">B</div>
+                        <div class="author-info">
+                            <strong>Bunicul lui Ștefan și Elena</strong>
+                            <p>Pachet Basic</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="faq-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Întrebări frecvente</h2>
+                <p>Răspunsuri la întrebările pe care le au aproape toți părinții</p>
+            </div>
+            
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Cât de personalizat este mesajul?
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        Menționăm numele copilului, vârsta și 2-3 detalii reale pe care ni le dai tu (de ex. ce îi place, unde merge, la ce a muncit în ultima perioadă).
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Cum primesc mesajul?
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        Primești un link de descărcare / vizualizare pe email, pe care îl poți reda pe televizor, laptop, telefon sau îl poți trimite mai departe familiei.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Este video-ul generat de AI?
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        Folosim tehnologie pentru a putea personaliza rapid mesajele, dar tonul și structura sunt gândite ca să sune cald, uman și natural. Nu vrem roboți, vrem emoție.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Ce se întâmplă dacă nu sunt mulțumit?
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        Dacă mesajul nu te emoționează sau ți se pare că nu se potrivește copilului tău, îl refacem. Fără discuții inutile.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Glasul Moșului</h3>
+                    <p>Mesaje video personalizate de la Moș Crăciun pentru copii și părinți fericiți.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p>Email: contact@glasulmosului.ro</p>
+                    <p>Telefon: 0723 456 789</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Linkuri utile</h3>
+                    <a href="#cum-functioneaza">Cum funcționează</a>
+                    <a href="#pachete">Pachete</a>
+                    <a href="#testimoniale">Testimoniale</a>
+                    <a href="#faq">Întrebări frecvente</a>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Glasul Moșului. Toate drepturile rezervate.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ accordion
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentElement;
+                const isActive = item.classList.contains('active');
+                document.querySelectorAll('.faq-item').forEach(el => el.classList.remove('active'));
+                if (!isActive) item.classList.add('active');
+            });
+        });
+
+        // Sunet discret la primul scroll
+        let soundPlayed = false;
+        window.addEventListener('scroll', () => {
+            if (soundPlayed) return;
+            if (window.scrollY > 100) {
+                const audio = document.getElementById('scroll-sound');
+                if (audio) {
+                    audio.volume = 0.25;
+                    audio.play().catch(() => {});
+                }
+                soundPlayed = true;
+            }
+        });
+    </script>
+</body>
+</html>
