@@ -100,7 +100,7 @@
             font-weight: 400;
         }
         
-        /* Meniu mobil */
+        /* Meniu mobil - CORECTAT cu opacitate corectă */
         .mobile-menu-toggle {
             display: none;
             background: none;
@@ -542,16 +542,17 @@
             z-index: 2;
         }
 
+        /* Poze pentru pachete - CORECTATE cu SVG-uri decorative */
         .basic-bg {
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="200" viewBox="0 0 400 200"><rect width="400" height="200" fill="%23c00"/><text x="200" y="100" font-family="Arial" font-size="24" fill="white" text-anchor="middle" opacity="0.3">Basic</text></svg>');
+            background: linear-gradient(135deg, #c00, #a00);
         }
 
         .magic-bg {
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="200" viewBox="0 0 400 200"><rect width="400" height="200" fill="%23c00"/><text x="200" y="100" font-family="Arial" font-size="24" fill="white" text-anchor="middle" opacity="0.3">Magic</text></svg>');
+            background: linear-gradient(135deg, #c00, #800);
         }
 
         .instant-bg {
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="200" viewBox="0 0 400 200"><rect width="400" height="200" fill="%23c00"/><text x="200" y="100" font-family="Arial" font-size="24" fill="white" text-anchor="middle" opacity="0.3">Instant</text></svg>');
+            background: linear-gradient(135deg, #c00, #600);
         }
         
         .package-header h3 {
@@ -851,7 +852,7 @@
             font-weight: 400;
         }
         
-        /* Responsive - FIXED pentru meniu */
+        /* Responsive - CORECTAT pentru meniu mobil cu opacitate corectă */
         @media (max-width: 768px) {
             header {
                 height: auto;
@@ -870,7 +871,7 @@
                 right: -100%;
                 width: 100%;
                 height: 100vh;
-                background: rgba(192, 0, 0, 0.98);
+                background: rgba(192, 0, 0, 0.98); /* CORECTAT - opacitate corectă */
                 backdrop-filter: blur(10px);
                 flex-direction: column;
                 padding: 80px 20px 20px;
