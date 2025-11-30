@@ -805,8 +805,9 @@
             display: none;
             position: fixed;
             inset: 0;
-            background: rgba(0,0,0,0.55);
-            z-index: 2500;
+            background: #000;
+            opacity: 0.55;
+            z-index: 9998;
         }
 
         .mobile-menu-overlay.active {
@@ -828,15 +829,13 @@
                 inset: 0;
                 width: 100%;
                 height: 100vh;
-                /* fundal cu opacitate, să nu mai simți că se suprapune urât */
-                background: rgba(155, 0, 0, 0.94);
-                backdrop-filter: blur(6px);
-                -webkit-backdrop-filter: blur(6px);
+                /* AICI: meniu full-screen, fundal 100% opac, fără transparență */
+                background-color: #9b0000;
                 flex-direction: column;
                 padding: 90px 20px 20px;
                 transform: translateX(100%);
                 transition: transform 0.35s ease;
-                z-index: 3000;
+                z-index: 9999;
             }
 
             nav.active {
