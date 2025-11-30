@@ -7,13 +7,12 @@
     <meta name="description" content="Glasul Moșului – mesaje video personalizate de la Moș Crăciun, cu numele copilului și detalii reale din viața lui. Emoție pură, livrată în câteva minute.">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        /* Reset și stiluri de bază */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
             font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: #fff;
@@ -23,17 +22,16 @@
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
-        
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
-        
-        /* Header cu imagine Moș Crăciun */
+
         header {
-            background: linear-gradient(135deg, rgba(220, 0, 0, 0.92), rgba(170, 0, 0, 0.98)), 
-                        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="600" viewBox="0 0 1200 600"><defs><pattern id="snow" patternUnits="userSpaceOnUse" width="40" height="40"><circle cx="10" cy="10" r="1.5" fill="white" opacity="0.8"/><circle cx="30" cy="20" r="1.2" fill="white" opacity="0.6"/><circle cx="20" cy="35" r="1.4" fill="white" opacity="0.7"/></pattern></defs><rect width="1200" height="600" fill="%23b80000"/><rect width="1200" height="600" fill="url(%23snow)"/><path d="M200,180 Q450,80 700,180 T1200,180" stroke="%23fff" stroke-width="2.5" fill="none" opacity="0.35"/><path d="M150,240 Q400,140 650,240 T1150,240" stroke="%23fff" stroke-width="2.5" fill="none" opacity="0.3"/><path d="M100,300 Q350,200 600,300 T1100,300" stroke="%23fff" stroke-width="2.5" fill="none" opacity="0.25"/></svg>');
+            background: linear-gradient(135deg, rgba(220, 0, 0, 0.92), rgba(170, 0, 0, 0.98)),
+                        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="600" viewBox="0 0 1200 600"><defs><pattern id="snow" patternUnits="userSpaceOnUse" width="50" height="50"><circle cx="25" cy="25" r="2" fill="white" opacity="0.7"/></pattern></defs><rect width="1200" height="600" fill="%23b80000"/><rect width="1200" height="600" fill="url(%23snow)"/><path d="M300,200 Q500,100 700,200 T1100,200" stroke="%23fff" stroke-width="3" fill="none" opacity="0.3"/><path d="M250,250 Q450,150 650,250 T1050,250" stroke="%23fff" stroke-width="3" fill="none" opacity="0.3"/><path d="M200,300 Q400,200 600,300 T1000,300" stroke="%23fff" stroke-width="3" fill="none" opacity="0.3"/></svg>');
             background-size: cover;
             background-position: center;
             color: white;
@@ -44,14 +42,14 @@
             display: flex;
             flex-direction: column;
         }
-        
+
         .header-overlay {
             position: absolute;
             inset: 0;
             background: radial-gradient(circle at 70% 30%, rgba(255,255,255,0.15), transparent 60%);
             pointer-events: none;
         }
-        
+
         .header-content {
             display: flex;
             justify-content: space-between;
@@ -60,19 +58,19 @@
             z-index: 10;
             padding: 10px 0;
         }
-        
+
         .logo {
             display: flex;
             align-items: center;
             gap: 12px;
         }
-        
+
         .logo-icon {
             font-size: 32px;
             filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.3));
             animation: bounce 2s infinite;
         }
-        
+
         @keyframes bounce {
             0%, 20%, 50%, 80%, 100% {
                 transform: translateY(0);
@@ -84,49 +82,48 @@
                 transform: translateY(-3px);
             }
         }
-        
+
         .logo-text h1 {
             font-size: 20px;
             margin-bottom: 3px;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
             font-weight: 800;
         }
-        
+
         .logo-text p {
             font-size: 12px;
             opacity: 0.95;
             font-weight: 400;
         }
-        
-        /* Meniu mobil */
+
         .mobile-menu-toggle {
             display: none;
             background: none;
             border: none;
             color: white;
-            font-size: 26px;
+            font-size: 24px;
             cursor: pointer;
             padding: 8px;
             border-radius: 8px;
             transition: background-color 0.3s;
-            z-index: 1101;
+            z-index: 4000;
         }
-        
+
         .mobile-menu-toggle:hover {
             background-color: rgba(255,255,255,0.1);
         }
-        
+
         nav {
             display: flex;
         }
-        
+
         nav ul {
             display: flex;
             list-style: none;
             gap: 20px;
             align-items: center;
         }
-        
+
         nav a {
             color: white;
             text-decoration: none;
@@ -136,12 +133,12 @@
             border-radius: 20px;
             font-size: 14px;
         }
-        
+
         nav a:hover {
             background-color: rgba(255,255,255,0.2);
             transform: translateY(-2px);
         }
-        
+
         .nav-cta {
             background-color: white;
             color: #c00 !important;
@@ -150,14 +147,13 @@
             font-weight: 600;
             box-shadow: 0 4px 10px rgba(0,0,0,0.2);
         }
-        
+
         .nav-cta:hover {
             background-color: #ffebee !important;
             transform: translateY(-3px) !important;
             box-shadow: 0 6px 15px rgba(0,0,0,0.3) !important;
         }
-        
-        /* Hero Section */
+
         .hero {
             text-align: left;
             padding: 40px 0;
@@ -170,7 +166,7 @@
             flex-direction: column;
             justify-content: center;
         }
-        
+
         .hero h2 {
             font-size: 3.5rem;
             margin-bottom: 20px;
@@ -181,10 +177,10 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            animation: titleGlow 3s ease-in-out infinite, fadeInUp 1s ease 0.2s both;
+            animation: titleGlow 3s ease-in-out infinite;
             position: relative;
         }
-        
+
         @keyframes titleGlow {
             0%, 100% {
                 text-shadow: 3px 3px 6px rgba(0,0,0,0.4), 0 0 20px rgba(255,255,255,0.3);
@@ -193,17 +189,17 @@
                 text-shadow: 3px 3px 6px rgba(0,0,0,0.4), 0 0 30px rgba(255,255,255,0.6);
             }
         }
-        
+
         .hero p {
             font-size: 1.3rem;
             margin-bottom: 30px;
             opacity: 0.95;
             font-weight: 400;
             line-height: 1.5;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
             animation: fadeInUp 1s ease 0.5s both;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
         }
-        
+
         .btn {
             display: inline-block;
             background: linear-gradient(45deg, #fff, #ffebee);
@@ -220,7 +216,7 @@
             overflow: hidden;
             animation: fadeInUp 1s ease 0.8s both, pulse 2s ease 1.8s infinite;
         }
-        
+
         @keyframes pulse {
             0% {
                 transform: scale(1);
@@ -235,7 +231,7 @@
                 box-shadow: 0 8px 20px rgba(0,0,0,0.3);
             }
         }
-        
+
         .btn:hover {
             background: #c00;
             color: white;
@@ -243,7 +239,7 @@
             box-shadow: 0 15px 30px rgba(0,0,0,0.4);
             animation: none;
         }
-        
+
         .btn::before {
             content: '';
             position: absolute;
@@ -254,12 +250,11 @@
             background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
             transition: left 0.5s;
         }
-        
+
         .btn:hover::before {
             left: 100%;
         }
 
-        /* Poză Moș Crăciun în header - mos-craciun.png din folder */
         .header-visual {
             position: absolute;
             right: 5%;
@@ -320,7 +315,6 @@
             }
         }
 
-        /* Animări pentru text */
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -332,14 +326,13 @@
             }
         }
 
-        /* Banner livrare instant activă */
         .live-banner {
             background: #fff4f4;
             border-bottom: 1px solid #f3c0c0;
             position: relative;
             z-index: 20;
         }
-        
+
         .live-banner-inner {
             max-width: 1200px;
             margin: 0 auto;
@@ -353,7 +346,7 @@
             text-align: center;
             font-weight: 600;
         }
-        
+
         .live-dot {
             width: 10px;
             height: 10px;
@@ -362,7 +355,7 @@
             box-shadow: 0 0 0 0 rgba(45,255,137,0.8);
             animation: pulseDot 1.4s infinite;
         }
-        
+
         @keyframes pulseDot {
             0% {
                 transform: scale(1);
@@ -377,19 +370,18 @@
                 box-shadow: 0 0 0 0 rgba(45,255,137,0);
             }
         }
-        
-        /* Sections */
+
         section {
             padding: 80px 0;
             position: relative;
             z-index: 1;
         }
-        
+
         .section-title {
             text-align: center;
             margin-bottom: 50px;
         }
-        
+
         .section-title h2 {
             font-size: 2.5rem;
             color: #c00;
@@ -398,7 +390,7 @@
             display: inline-block;
             font-weight: 700;
         }
-        
+
         .section-title h2:after {
             content: '';
             position: absolute;
@@ -410,7 +402,7 @@
             background: linear-gradient(45deg, #c00, #ff6b6b);
             border-radius: 2px;
         }
-        
+
         .section-title p {
             font-size: 1.2rem;
             max-width: 700px;
@@ -418,15 +410,14 @@
             color: #666;
             font-weight: 400;
         }
-        
-        /* Cum funcționează */
+
         .steps {
             display: flex;
             justify-content: space-between;
             flex-wrap: wrap;
             gap: 30px;
         }
-        
+
         .step {
             flex: 1;
             min-width: 250px;
@@ -439,11 +430,11 @@
             transition: transform 0.3s;
             position: relative;
         }
-        
+
         .step:hover {
             transform: translateY(-10px);
         }
-        
+
         .step-number {
             background-color: #c00;
             color: white;
@@ -458,30 +449,29 @@
             font-size: 24px;
             box-shadow: 0 5px 15px rgba(192, 0, 0, 0.3);
         }
-        
+
         .step h3 {
             margin-bottom: 15px;
             color: #c00;
             font-size: 22px;
         }
-        
+
         .step p {
             color: #666;
             font-size: 16px;
         }
-        
-        /* Pachete */
+
         .packages-section {
             background-color: #f9f9f9;
         }
-        
+
         .packages {
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
             gap: 30px;
         }
-        
+
         .package {
             flex: 1;
             min-width: 300px;
@@ -494,7 +484,7 @@
             transition: transform 0.3s;
             position: relative;
         }
-        
+
         .package:hover {
             transform: translateY(-10px);
         }
@@ -512,10 +502,7 @@
             content: "";
             position: absolute;
             inset: 0;
-            background: linear-gradient(
-                rgba(200, 0, 0, 0.85),
-                rgba(150, 0, 0, 0.9)
-            );
+            background: linear-gradient(rgba(200, 0, 0, 0.85), rgba(150, 0, 0, 0.9));
         }
 
         .package-header * {
@@ -528,33 +515,33 @@
         }
 
         .magic-bg {
-            background-image: url('mos-magic.jpg');
+            background-image: url('mos-premium.jpg');
         }
 
         .instant-bg {
             background-image: url('mos-instant.jpg');
         }
-        
+
         .package-header h3 {
             font-size: 26px;
             margin-bottom: 10px;
         }
-        
+
         .package-price {
             font-size: 42px;
             font-weight: bold;
             margin: 10px 0;
         }
-        
+
         .package-body {
             padding: 30px;
         }
-        
+
         .package-features {
             list-style: none;
             margin-bottom: 30px;
         }
-        
+
         .package-features li {
             padding: 12px 0;
             border-bottom: 1px solid #eee;
@@ -562,7 +549,7 @@
             align-items: center;
             font-size: 16px;
         }
-        
+
         .package-features li:before {
             content: "✓";
             color: #c00;
@@ -570,7 +557,7 @@
             margin-right: 10px;
             font-size: 18px;
         }
-        
+
         .package-recommended {
             border: 3px solid #c00;
             transform: scale(1.05);
@@ -586,11 +573,11 @@
                 box-shadow: 0 16px 40px rgba(192, 0, 0, 0.8);
             }
         }
-        
+
         .package-recommended:hover {
             transform: scale(1.05) translateY(-10px);
         }
-        
+
         .recommended-badge {
             position: absolute;
             top: -15px;
@@ -604,7 +591,7 @@
             font-weight: bold;
             box-shadow: 0 5px 15px rgba(192, 0, 0, 0.3);
         }
-        
+
         .package-btn {
             display: block;
             width: 100%;
@@ -617,37 +604,36 @@
             transition: all 0.3s;
             border: 2px solid #c00;
         }
-        
+
         .btn-primary {
             background-color: #c00;
             color: white;
         }
-        
+
         .btn-primary:hover {
             background-color: #a80000;
             transform: translateY(-3px);
             box-shadow: 0 5px 15px rgba(192, 0, 0, 0.3);
         }
-        
+
         .btn-secondary {
             background-color: white;
             color: #c00;
         }
-        
+
         .btn-secondary:hover {
             background-color: #f9f9f9;
             transform: translateY(-3px);
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
-        
-        /* Testimoniale */
+
         .testimonials {
             display: flex;
             flex-wrap: wrap;
             gap: 30px;
             justify-content: center;
         }
-        
+
         .testimonial {
             flex: 1;
             min-width: 300px;
@@ -659,11 +645,11 @@
             border-left: 5px solid #c00;
             transition: transform 0.3s;
         }
-        
+
         .testimonial:hover {
             transform: translateY(-5px);
         }
-        
+
         .testimonial-text {
             font-style: italic;
             margin-bottom: 20px;
@@ -671,13 +657,13 @@
             color: #555;
             line-height: 1.6;
         }
-        
+
         .testimonial-author {
             display: flex;
             align-items: center;
             gap: 15px;
         }
-        
+
         .author-avatar {
             width: 50px;
             height: 50px;
@@ -690,22 +676,21 @@
             font-weight: bold;
             font-size: 20px;
         }
-        
+
         .author-info strong {
             display: block;
             margin-bottom: 5px;
         }
-        
+
         .author-info p {
             color: #777;
             font-size: 14px;
         }
-        
-        /* FAQ */
+
         .faq-section {
             background-color: #f9f9f9;
         }
-        
+
         .faq-item {
             margin-bottom: 20px;
             border: 1px solid #eee;
@@ -715,11 +700,11 @@
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
             transition: all 0.3s;
         }
-        
+
         .faq-item:hover {
             box-shadow: 0 8px 20px rgba(0,0,0,0.1);
         }
-        
+
         .faq-question {
             background-color: white;
             padding: 20px;
@@ -731,35 +716,34 @@
             font-size: 18px;
             color: #c00;
         }
-        
+
         .faq-answer {
             padding: 0 20px;
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.3s ease, padding 0.3s ease;
         }
-        
+
         .faq-item.active .faq-answer {
             padding: 0 20px 20px;
             max-height: 500px;
         }
-        
+
         .faq-icon {
             font-size: 20px;
             transition: transform 0.3s;
         }
-        
+
         .faq-item.active .faq-icon {
             transform: rotate(45deg);
         }
-        
-        /* Footer */
+
         footer {
             background-color: #c00;
             color: white;
             padding: 50px 0 20px;
         }
-        
+
         .footer-content {
             display: flex;
             justify-content: space-between;
@@ -767,19 +751,19 @@
             gap: 40px;
             margin-bottom: 40px;
         }
-        
+
         .footer-section {
             flex: 1;
             min-width: 250px;
         }
-        
+
         .footer-section h3 {
             margin-bottom: 20px;
             font-size: 22px;
             position: relative;
             display: inline-block;
         }
-        
+
         .footer-section h3:after {
             content: '';
             position: absolute;
@@ -789,12 +773,12 @@
             height: 3px;
             background-color: white;
         }
-        
+
         .footer-section p {
             margin-bottom: 10px;
             opacity: 0.9;
         }
-        
+
         .footer-section a {
             color: white;
             text-decoration: none;
@@ -803,12 +787,12 @@
             display: block;
             margin-bottom: 8px;
         }
-        
+
         .footer-section a:hover {
             opacity: 1;
             text-decoration: underline;
         }
-        
+
         .footer-bottom {
             border-top: 1px solid rgba(255,255,255,0.2);
             padding-top: 20px;
@@ -817,73 +801,66 @@
             opacity: 0.8;
         }
 
-        /* Overlay meniu mobil */
         .mobile-menu-overlay {
             display: none;
             position: fixed;
             inset: 0;
-            background: rgba(0,0,0,0.7);
-            z-index: 1100;
+            background: #000;
+            opacity: 0.55;
+            z-index: 2500;
         }
-        
+
         .mobile-menu-overlay.active {
             display: block;
         }
 
-        body.menu-open {
-            overflow: hidden;
-        }
-        
-        /* Responsive - meniu și layout pe mobil */
         @media (max-width: 768px) {
             header {
                 min-height: 100vh;
                 padding: 12px 0 40px;
             }
-            
+
             .mobile-menu-toggle {
                 display: block;
             }
-            
+
             nav {
                 position: fixed;
-                top: 0;
-                right: -100%;
-                width: 75%;
-                max-width: 320px;
+                inset: 0;
+                width: 100%;
                 height: 100vh;
-                background: #b00000;
-                box-shadow: -4px 0 20px rgba(0,0,0,0.5);
+                background: #9b0000;
                 flex-direction: column;
-                padding: 80px 20px 20px;
-                transition: right 0.35s ease;
-                z-index: 1200;
+                padding: 90px 20px 20px;
+                transform: translateX(100%);
+                transition: transform 0.35s ease;
+                z-index: 3000;
             }
-            
+
             nav.active {
-                right: 0;
+                transform: translateX(0);
             }
-            
+
             nav ul {
                 flex-direction: column;
                 gap: 0;
                 width: 100%;
             }
-            
+
             nav li {
                 width: 100%;
-                border-bottom: 1px solid rgba(255,255,255,0.15);
+                border-bottom: 1px solid rgba(255,255,255,0.1);
             }
-            
+
             nav a {
                 display: block;
-                padding: 16px;
+                padding: 18px;
                 border-radius: 0;
                 text-align: left;
-                font-size: 17px;
+                font-size: 18px;
                 font-weight: 500;
             }
-            
+
             .nav-cta {
                 margin-top: 20px;
                 text-align: center;
@@ -898,6 +875,22 @@
                 align-items: center;
             }
 
+            .logo {
+                gap: 10px;
+            }
+
+            .logo-icon {
+                font-size: 28px;
+            }
+
+            .logo-text h1 {
+                font-size: 18px;
+            }
+
+            .logo-text p {
+                font-size: 11px;
+            }
+
             .hero {
                 text-align: center;
                 padding: 20px 0;
@@ -908,6 +901,9 @@
                 font-size: 2.2rem;
                 line-height: 1.2;
                 margin-bottom: 15px;
+                background: linear-gradient(45deg, #fff, #ffebee);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
             }
 
             .hero p {
@@ -922,6 +918,10 @@
             }
 
             .header-visual {
+                display: none;
+            }
+
+            .santa-container {
                 display: none;
             }
 
@@ -961,7 +961,7 @@
 
         @media (max-width: 480px) {
             .hero h2 {
-                font-size: 1.9rem;
+                font-size: 1.8rem;
             }
 
             .hero p {
@@ -980,7 +980,7 @@
             .section-title p {
                 font-size: 0.9rem;
             }
-            
+
             .container {
                 padding: 0 16px;
             }
@@ -988,7 +988,6 @@
     </style>
 </head>
 <body>
-    <!-- Header cu imagine Mos Craciun -->
     <header>
         <div class="header-overlay"></div>
         <div class="container">
@@ -1000,9 +999,9 @@
                         <p>Mesaje video personalizate de la Moș Crăciun</p>
                     </div>
                 </div>
-                
-                <button class="mobile-menu-toggle" aria-label="Deschide meniul">☰</button>
-                
+
+                <button class="mobile-menu-toggle">☰</button>
+
                 <nav>
                     <ul>
                         <li><a href="#cum-functioneaza">Cum funcționează</a></li>
@@ -1013,14 +1012,13 @@
                     </ul>
                 </nav>
             </div>
-            
+
             <div class="hero">
                 <h2>Glasul Moșului<br>ajunge direct la<br>copilul tău</h2>
                 <p>Un mesaj video autentic de la Moș Crăciun, cu numele copilului și detalii reale din viața lui. <strong>Emoție pură, exact când ai nevoie.</strong></p>
                 <a href="#pachete" class="btn">Alege pachetul potrivit</a>
             </div>
 
-            <!-- Poză Moș Crăciun - mos-craciun.png din folder -->
             <div class="header-visual">
                 <div class="santa-container">
                     <div class="santa-glow"></div>
@@ -1030,10 +1028,8 @@
         </div>
     </header>
 
-    <!-- Overlay pentru meniu mobil -->
     <div class="mobile-menu-overlay"></div>
 
-    <!-- Banner livrare instant -->
     <div class="live-banner">
         <div class="live-banner-inner">
             <span class="live-dot"></span>
@@ -1041,7 +1037,6 @@
         </div>
     </div>
 
-    <!-- Cum funcționează -->
     <section id="cum-functioneaza">
         <div class="container">
             <div class="section-title">
@@ -1068,7 +1063,6 @@
         </div>
     </section>
 
-    <!-- Pachete -->
     <section id="pachete" class="packages-section">
         <div class="container">
             <div class="section-title">
@@ -1090,17 +1084,17 @@
                             <li>Ton cald, specific Crăciunului</li>
                             <li>Livrare în cel mult 24 de ore</li>
                         </ul>
-                        <a 
-                          href="https://wa.me/40723456789?text=Salut,%20vreau%20să%20comand%20pachetul%20Basic%20Glasul%20Moșului.%20Numele%20copilului%20este%20...,%20are%20vârsta%20de%20...,%20iar%20câteva%20detalii%20despre%20el%20sunt%20...%20(hobby-uri,%20grădiniță/școală,%20ce%20a%20făcut%20bine%20anul%20ăsta)." 
-                          class="package-btn btn-secondary" 
-                          target="_blank" 
+                        <a
+                          href="https://wa.me/40723456789?text=Salut,%20vreau%20s%C4%83%20comand%20pachetul%20Basic%20Glasul%20Mo%C8%99ului.%20Numele%20copilului%20este%20...,%20are%20v%C3%A2rsta%20de%20...,%20iar%20c%C3%A2teva%20detalii%20despre%20el%20sunt%20...%20(hobby-uri,%20gr%C4%83dini%C8%9B%C4%83/%C8%99coal%C4%83,%20ce%20a%20f%C4%83cut%20bine%20anul%20%C4%83sta)."
+                          class="package-btn btn-secondary"
+                          target="_blank"
                           rel="noopener noreferrer"
                         >
                           Comandă Basic pe WhatsApp
                         </a>
                     </div>
                 </div>
-                
+
                 <div class="package package-recommended">
                     <div class="recommended-badge">Recomandat</div>
                     <div class="package-header magic-bg">
@@ -1116,17 +1110,17 @@
                             <li>Ton cald, blând, „ca un bunic”</li>
                             <li>Livrare în 30-120 de minute</li>
                         </ul>
-                        <a 
-                          href="https://wa.me/40723456789?text=Salut,%20vreau%20să%20comand%20pachetul%20Magic%20Glasul%20Moșului.%20Numele%20copilului%20este%20...,%20are%20vârsta%20de%20...,%20iar%20detaliile%20importante%20despre%20el%20sunt%20...%20(hobby-uri,%20grădiniță/școală,%20ce%20a%20făcut%20bine%20anul%20ăsta)." 
-                          class="package-btn btn-primary" 
-                          target="_blank" 
+                        <a
+                          href="https://wa.me/40723456789?text=Salut,%20vreau%20s%C4%83%20comand%20pachetul%20Magic%20Glasul%20Mo%C8%99ului.%20Numele%20copilului%20este%20...,%20are%20v%C3%A2rsta%20de%20...,%20iar%20detaliile%20importante%20despre%20el%20sunt%20...%20(hobby-uri,%20gr%C4%83dini%C8%9B%C4%83/%C8%99coal%C4%83,%20ce%20a%20f%C4%83cut%20bine%20anul%20%C4%83sta)."
+                          class="package-btn btn-primary"
+                          target="_blank"
                           rel="noopener noreferrer"
                         >
                           Comandă Magic pe WhatsApp
                         </a>
                     </div>
                 </div>
-                
+
                 <div class="package">
                     <div class="package-header instant-bg">
                         <h3>Instant</h3>
@@ -1140,10 +1134,10 @@
                             <li>Livrare în 5-15 minute</li>
                             <li>Perfect pentru momente spontane</li>
                         </ul>
-                        <a 
-                          href="https://wa.me/40723456789?text=Salut,%20vreau%20să%20comand%20pachetul%20Instant%20Glasul%20Moșului.%20Am%20nevoie%20de%20video%20cât%20mai%20repede.%20Numele%20copilului%20este%20...,%20are%20vârsta%20de%20...,%20iar%20detaliile%20despre%20el%20sunt%20...%20(hobby-uri,%20grădiniță/școală,%20ce%20a%20făcut%20bine%20anul%20ăsta)." 
-                          class="package-btn btn-primary" 
-                          target="_blank" 
+                        <a
+                          href="https://wa.me/40723456789?text=Salut,%20vreau%20s%C4%83%20comand%20pachetul%20Instant%20Glasul%20Mo%C8%99ului.%20Am%20nevoie%20de%20video%20c%C3%A2t%20mai%20repede.%20Numele%20copilului%20este%20...,%20are%20v%C3%A2rsta%20de%20...,%20iar%20detaliile%20despre%20el%20sunt%20...%20(hobby-uri,%20gr%C4%83dini%C8%9B%C4%83/%C8%99coal%C4%83,%20ce%20a%20f%C4%83cut%20bine%20anul%20%C4%83sta)."
+                          class="package-btn btn-primary"
+                          target="_blank"
                           rel="noopener noreferrer"
                         >
                           Comandă Instant pe WhatsApp
@@ -1154,7 +1148,6 @@
         </div>
     </section>
 
-    <!-- Testimoniale -->
     <section id="testimoniale">
         <div class="container">
             <div class="section-title">
@@ -1174,7 +1167,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="testimonial">
                     <div class="testimonial-text">
                         "Am luat pachetul Instant pentru că fiul meu tocmai îmi spunea că Moșul nu vine la el. Când a primit mesajul, s-a uitat la mine cu ochii plini de mirare. Mulțumesc!"
@@ -1187,7 +1180,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="testimonial">
                     <div class="testimonial-text">
                         "Am făcut mesajul Basic pentru nepoții mei. Au fost atât de încântați să își audă numele din gura Moșului! O experiență unică pe care o vom păstra pentru totdeauna."
@@ -1204,14 +1197,13 @@
         </div>
     </section>
 
-    <!-- FAQ -->
     <section id="faq" class="faq-section">
         <div class="container">
             <div class="section-title">
                 <h2>Întrebări frecvente</h2>
                 <p>Răspunsuri la întrebările pe care le au aproape toți părinții</p>
             </div>
-            
+
             <div class="faq-list">
                 <div class="faq-item">
                     <div class="faq-question">
@@ -1222,7 +1214,7 @@
                         Menționăm numele copilului, vârsta și 2-3 detalii reale pe care ni le dai tu (de ex. ce îi place, unde merge, la ce a muncit în ultima perioadă).
                     </div>
                 </div>
-                
+
                 <div class="faq-item">
                     <div class="faq-question">
                         Cum primesc mesajul?
@@ -1232,7 +1224,7 @@
                         Primești un link de descărcare / vizualizare pe WhatsApp sau email, pe care îl poți reda pe televizor, laptop, telefon sau îl poți trimite mai departe familiei.
                     </div>
                 </div>
-                
+
                 <div class="faq-item">
                     <div class="faq-question">
                         Este video-ul generat de AI?
@@ -1242,7 +1234,7 @@
                         Folosim tehnologie pentru a putea personaliza rapid mesajele, dar tonul și structura sunt gândite ca să sune cald, uman și natural. Nu vrem roboți, vrem emoție.
                     </div>
                 </div>
-                
+
                 <div class="faq-item">
                     <div class="faq-question">
                         Ce se întâmplă dacă nu sunt mulțumit?
@@ -1256,7 +1248,6 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
         <div class="container">
             <div class="footer-content">
@@ -1264,13 +1255,13 @@
                     <h3>Glasul Moșului</h3>
                     <p>Mesaje video personalizate de la Moș Crăciun pentru copii și părinți fericiți.</p>
                 </div>
-                
+
                 <div class="footer-section">
                     <h3>Contact</h3>
                     <p>Email: contact@glasulmosului.ro</p>
                     <p>Telefon: 0723 456 789</p>
                 </div>
-                
+
                 <div class="footer-section">
                     <h3>Linkuri utile</h3>
                     <a href="#cum-functioneaza">Cum funcționează</a>
@@ -1279,7 +1270,7 @@
                     <a href="#faq">Întrebări frecvente</a>
                 </div>
             </div>
-            
+
             <div class="footer-bottom">
                 <p>&copy; 2024 Glasul Moșului. Toate drepturile rezervate.</p>
             </div>
@@ -1287,46 +1278,46 @@
     </footer>
 
     <script>
-        // Meniu mobil simplu și clar
         const menuToggle = document.querySelector('.mobile-menu-toggle');
         const nav = document.querySelector('nav');
         const overlay = document.querySelector('.mobile-menu-overlay');
 
-        function openMenu() {
-            nav.classList.add('active');
-            overlay.classList.add('active');
-            document.body.classList.add('menu-open');
+        function toggleMenu() {
+            const isOpening = !nav.classList.contains('active');
+            nav.classList.toggle('active');
+            overlay.classList.toggle('active');
+            document.body.style.overflow = isOpening ? 'hidden' : '';
         }
 
-        function closeMenu() {
-            nav.classList.remove('active');
-            overlay.classList.remove('active');
-            document.body.classList.remove('menu-open');
+        if (menuToggle) {
+            menuToggle.addEventListener('click', toggleMenu);
         }
 
-        menuToggle.addEventListener('click', () => {
-            if (nav.classList.contains('active')) {
-                closeMenu();
-            } else {
-                openMenu();
-            }
-        });
-
-        overlay.addEventListener('click', closeMenu);
+        if (overlay) {
+            overlay.addEventListener('click', toggleMenu);
+        }
 
         document.querySelectorAll('nav a').forEach(link => {
             link.addEventListener('click', () => {
-                closeMenu();
+                nav.classList.remove('active');
+                overlay.classList.remove('active');
+                document.body.style.overflow = '';
             });
         });
-        
-        // FAQ accordion
+
         document.querySelectorAll('.faq-question').forEach(question => {
             question.addEventListener('click', () => {
                 const item = question.parentElement;
                 const isActive = item.classList.contains('active');
                 document.querySelectorAll('.faq-item').forEach(el => el.classList.remove('active'));
                 if (!isActive) item.classList.add('active');
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const heroElements = document.querySelectorAll('.hero h2, .hero p, .hero .btn');
+            heroElements.forEach((el, index) => {
+                el.style.animationDelay = `${index * 0.3}s`;
             });
         });
     </script>
