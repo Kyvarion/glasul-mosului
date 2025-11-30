@@ -805,8 +805,7 @@
             display: none;
             position: fixed;
             inset: 0;
-            background: #000;
-            opacity: 0.55;
+            background: rgba(0,0,0,0.55);
             z-index: 2500;
         }
 
@@ -829,7 +828,10 @@
                 inset: 0;
                 width: 100%;
                 height: 100vh;
-                background: #9b0000;
+                /* fundal cu opacitate, să nu mai simți că se suprapune urât */
+                background: rgba(155, 0, 0, 0.94);
+                backdrop-filter: blur(6px);
+                -webkit-backdrop-filter: blur(6px);
                 flex-direction: column;
                 padding: 90px 20px 20px;
                 transform: translateX(100%);
