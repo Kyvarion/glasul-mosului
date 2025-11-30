@@ -113,18 +113,19 @@
             background-color: rgba(255,255,255,0.1);
         }
 
-        nav {
+        /* NAV DESKTOP */
+        .desktop-nav {
             display: flex;
         }
 
-        nav ul {
+        .desktop-nav ul {
             display: flex;
             list-style: none;
             gap: 20px;
             align-items: center;
         }
 
-        nav a {
+        .desktop-nav a {
             color: white;
             text-decoration: none;
             font-weight: 500;
@@ -134,7 +135,7 @@
             font-size: 14px;
         }
 
-        nav a:hover {
+        .desktop-nav a:hover {
             background-color: rgba(255,255,255,0.2);
             transform: translateY(-2px);
         }
@@ -801,17 +802,9 @@
             opacity: 0.8;
         }
 
-        .mobile-menu-overlay {
+        /* NAV MOBIL FULLSCREEN SEPARAT */
+        .mobile-nav {
             display: none;
-            position: fixed;
-            inset: 0;
-            background: #000;
-            opacity: 0.55;
-            z-index: 9998;
-        }
-
-        .mobile-menu-overlay.active {
-            display: block;
         }
 
         @media (max-width: 768px) {
@@ -824,51 +817,49 @@
                 display: block;
             }
 
-            nav {
+            .desktop-nav {
+                display: none;
+            }
+
+            .mobile-nav {
                 position: fixed;
                 inset: 0;
-                width: 100%;
-                height: 100vh;
-                /* AICI: meniu full-screen, fundal 100% opac, fără transparență */
-                background-color: #9b0000;
+                background-color: #9b0000; /* FULL OPAC, doar meniul se vede */
+                display: none;
                 flex-direction: column;
-                padding: 90px 20px 20px;
-                transform: translateX(100%);
-                transition: transform 0.35s ease;
+                justify-content: flex-start;
+                padding: 80px 24px 24px;
                 z-index: 9999;
             }
 
-            nav.active {
-                transform: translateX(0);
+            .mobile-nav.active {
+                display: flex;
             }
 
-            nav ul {
-                flex-direction: column;
-                gap: 0;
+            .mobile-nav ul {
+                list-style: none;
                 width: 100%;
             }
 
-            nav li {
-                width: 100%;
-                border-bottom: 1px solid rgba(255,255,255,0.1);
+            .mobile-nav li {
+                border-bottom: 1px solid rgba(255,255,255,0.15);
             }
 
-            nav a {
+            .mobile-nav a {
                 display: block;
-                padding: 18px;
-                border-radius: 0;
-                text-align: left;
+                padding: 18px 4px;
+                color: #fff;
+                text-decoration: none;
                 font-size: 18px;
                 font-weight: 500;
             }
 
-            .nav-cta {
+            .mobile-nav a.nav-cta {
                 margin-top: 20px;
                 text-align: center;
-                border-radius: 25px;
-                font-weight: 600;
-                font-size: 16px;
-                padding: 12px 24px !important;
+                border-radius: 999px;
+                background: #fff;
+                color: #c00 !important;
             }
 
             .header-content {
@@ -919,10 +910,6 @@
             }
 
             .header-visual {
-                display: none;
-            }
-
-            .santa-container {
                 display: none;
             }
 
@@ -989,338 +976,340 @@
     </style>
 </head>
 <body>
-    <header>
-        <div class="header-overlay"></div>
-        <div class="container">
-            <div class="header-content">
-                <div class="logo">
-                    <div class="logo-icon">🎅</div>
-                    <div class="logo-text">
-                        <h1>Glasul Moșului</h1>
-                        <p>Mesaje video personalizate de la Moș Crăciun</p>
-                    </div>
-                </div>
-
-                <button class="mobile-menu-toggle">☰</button>
-
-                <nav>
-                    <ul>
-                        <li><a href="#cum-functioneaza">Cum funcționează</a></li>
-                        <li><a href="#pachete">Pachete</a></li>
-                        <li><a href="#testimoniale">Testimoniale</a></li>
-                        <li><a href="#faq">Întrebări</a></li>
-                        <li><a href="#pachete" class="nav-cta">Comandă acum</a></li>
-                    </ul>
-                </nav>
-            </div>
-
-            <div class="hero">
-                <h2>Glasul Moșului<br>ajunge direct la<br>copilul tău</h2>
-                <p>Un mesaj video autentic de la Moș Crăciun, cu numele copilului și detalii reale din viața lui. <strong>Emoție pură, exact când ai nevoie.</strong></p>
-                <a href="#pachete" class="btn">Alege pachetul potrivit</a>
-            </div>
-
-            <div class="header-visual">
-                <div class="santa-container">
-                    <div class="santa-glow"></div>
-                    <img src="mos-craciun.png" alt="Moș Crăciun" class="santa-image">
+<header>
+    <div class="header-overlay"></div>
+    <div class="container">
+        <div class="header-content">
+            <div class="logo">
+                <div class="logo-icon">🎅</div>
+                <div class="logo-text">
+                    <h1>Glasul Moșului</h1>
+                    <p>Mesaje video personalizate de la Moș Crăciun</p>
                 </div>
             </div>
+
+            <button class="mobile-menu-toggle">☰</button>
+
+            <nav class="desktop-nav">
+                <ul>
+                    <li><a href="#cum-functioneaza">Cum funcționează</a></li>
+                    <li><a href="#pachete">Pachete</a></li>
+                    <li><a href="#testimoniale">Testimoniale</a></li>
+                    <li><a href="#faq">Întrebări</a></li>
+                    <li><a href="#pachete" class="nav-cta">Comandă acum</a></li>
+                </ul>
+            </nav>
         </div>
-    </header>
 
-    <div class="mobile-menu-overlay"></div>
+        <div class="hero">
+            <h2>Glasul Moșului<br>ajunge direct la<br>copilul tău</h2>
+            <p>Un mesaj video autentic de la Moș Crăciun, cu numele copilului și detalii reale din viața lui. <strong>Emoție pură, exact când ai nevoie.</strong></p>
+            <a href="#pachete" class="btn">Alege pachetul potrivit</a>
+        </div>
 
-    <div class="live-banner">
-        <div class="live-banner-inner">
-            <span class="live-dot"></span>
-            <span>⚡ Livrare instant activă acum – mesajul copilului tău poate fi gata în 5–15 minute.</span>
+        <div class="header-visual">
+            <div class="santa-container">
+                <div class="santa-glow"></div>
+                <img src="mos-craciun.png" alt="Moș Crăciun" class="santa-image">
+            </div>
         </div>
     </div>
+</header>
 
-    <section id="cum-functioneaza">
-        <div class="container">
-            <div class="section-title">
-                <h2>Cum funcționează Glasul Moșului</h2>
-                <p>Totul este simplu și gândit să nu îți consume timp. Tu completezi câteva detalii, noi avem grijă ca Moșul să livreze magia.</p>
+<!-- MENIU MOBIL SEPARAT, FULLSCREEN -->
+<nav class="mobile-nav">
+    <ul>
+        <li><a href="#cum-functioneaza">Cum funcționează</a></li>
+        <li><a href="#pachete">Pachete</a></li>
+        <li><a href="#testimoniale">Testimoniale</a></li>
+        <li><a href="#faq">Întrebări</a></li>
+        <li><a href="#pachete" class="nav-cta">Comandă acum</a></li>
+    </ul>
+</nav>
+
+<div class="live-banner">
+    <div class="live-banner-inner">
+        <span class="live-dot"></span>
+        <span>⚡ Livrare instant activă acum – mesajul copilului tău poate fi gata în 5–15 minute.</span>
+    </div>
+</div>
+
+<section id="cum-functioneaza">
+    <div class="container">
+        <div class="section-title">
+            <h2>Cum funcționează Glasul Moșului</h2>
+            <p>Totul este simplu și gândit să nu îți consume timp. Tu completezi câteva detalii, noi avem grijă ca Moșul să livreze magia.</p>
+        </div>
+        <div class="steps">
+            <div class="step">
+                <div class="step-number">1</div>
+                <h3>Alegi pachetul</h3>
+                <p>Apeși pe pachetul dorit și ne scrii direct pe WhatsApp ca să confirmăm comanda.</p>
             </div>
-            <div class="steps">
-                <div class="step">
-                    <div class="step-number">1</div>
-                    <h3>Alegi pachetul</h3>
-                    <p>Apeși pe pachetul dorit și ne scrii direct pe WhatsApp ca să confirmăm comanda.</p>
+            <div class="step">
+                <div class="step-number">2</div>
+                <h3>Completezi detaliile</h3>
+                <p>Îți cerem numele copilului, vârsta și câteva lucruri importante despre el (hobby-uri, grădiniță/școală, ce a făcut bine anul acesta).</p>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <h3>Primești video-ul</h3>
+                <p>În funcție de pachet, primești mesajul în câteva minute sau în cel mult câteva ore, direct pe WhatsApp sau pe email.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="pachete" class="packages-section">
+    <div class="container">
+        <div class="section-title">
+            <h2>Alege câtă magie vrei să aduci</h2>
+            <p>Toate mesajele sunt personalizate. Diferența este în durată, nivelul de detalii și viteza de livrare.</p>
+        </div>
+        <div class="packages">
+            <div class="package">
+                <div class="package-header basic-bg">
+                    <h3>Basic</h3>
+                    <div class="package-price">39 lei</div>
+                    <p>/ copil</p>
                 </div>
-                <div class="step">
-                    <div class="step-number">2</div>
-                    <h3>Completezi detaliile</h3>
-                    <p>Îți cerem numele copilului, vârsta și câteva lucruri importante despre el (hobby-uri, grădiniță/școală, ce a făcut bine anul acesta).</p>
+                <div class="package-body">
+                    <ul class="package-features">
+                        <li>Video 30-40 secunde</li>
+                        <li>Numele copilului</li>
+                        <li>Mesaj general de încurajare</li>
+                        <li>Ton cald, specific Crăciunului</li>
+                        <li>Livrare în cel mult 24 de ore</li>
+                    </ul>
+                    <a
+                      href="https://wa.me/40723456789?text=Salut,%20vreau%20s%C4%83%20comand%20pachetul%20Basic%20Glasul%20Mo%C8%99ului.%20Numele%20copilului%20este%20...,%20are%20v%C3%A2rsta%20de%20...,%20iar%20c%C3%A2teva%20detalii%20despre%20el%20sunt%20...%20(hobby-uri,%20gr%C4%83dini%C8%9B%C4%83/%C8%99coal%C4%83,%20ce%20a%20f%C4%83cut%20bine%20anul%20%C4%83sta)."
+                      class="package-btn btn-secondary"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Comandă Basic pe WhatsApp
+                    </a>
                 </div>
-                <div class="step">
-                    <div class="step-number">3</div>
-                    <h3>Primești video-ul</h3>
-                    <p>În funcție de pachet, primești mesajul în câteva minute sau în cel mult câteva ore, direct pe WhatsApp sau pe email.</p>
+            </div>
+
+            <div class="package package-recommended">
+                <div class="recommended-badge">Recomandat</div>
+                <div class="package-header magic-bg">
+                    <h3>Magic</h3>
+                    <div class="package-price">79 lei</div>
+                    <p>/ copil</p>
+                </div>
+                <div class="package-body">
+                    <ul class="package-features">
+                        <li>Video 60-90 secunde cu Moș Crăciun</li>
+                        <li>Numele copilului rostit clar, de mai multe ori</li>
+                        <li>Detalii din viața lui (hobby-uri, grădiniță, școală)</li>
+                        <li>Ton cald, blând, „ca un bunic”</li>
+                        <li>Livrare în 30-120 de minute</li>
+                    </ul>
+                    <a
+                      href="https://wa.me/40723456789?text=Salut,%20vreau%20s%C4%83%20comand%20pachetul%20Magic%20Glasul%20Mo%C8%99ului.%20Numele%20copilului%20este%20...,%20are%20v%C3%A2rsta%20de%20...,%20iar%20detaliile%20importante%20despre%20el%20sunt%20...%20(hobby-uri,%20gr%C4%83dini%C8%9B%C4%83/%C8%99coal%C4%83,%20ce%20a%20f%C4%83cut%20bine%20anul%20%C4%83sta)."
+                      class="package-btn btn-primary"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Comandă Magic pe WhatsApp
+                    </a>
+                </div>
+            </div>
+
+            <div class="package">
+                <div class="package-header instant-bg">
+                    <h3>Instant</h3>
+                    <div class="package-price">99 lei</div>
+                    <p>/ copil</p>
+                </div>
+                <div class="package-body">
+                    <ul class="package-features">
+                        <li>Include toate beneficiile pachetului Magic</li>
+                        <li>Prioritate maximă în coadă</li>
+                        <li>Livrare în 5-15 minute</li>
+                        <li>Perfect pentru momente spontane</li>
+                    </ul>
+                    <a
+                      href="https://wa.me/40723456789?text=Salut,%20vreau%20s%C4%83%20comand%20pachetul%20Instant%20Glasul%20Mo%C8%99ului.%20Am%20nevoie%20de%20video%20c%C3%A2t%20mai%20repede.%20Numele%20copilului%20este%20...,%20are%20v%C3%A2rsta%20de%20...,%20iar%20detaliile%20despre%20el%20sunt%20...%20(hobby-uri,%20gr%C4%83dini%C8%9B%C4%83/%C8%99coal%C4%83,%20ce%20a%20f%C4%83cut%20bine%20anul%20%C4%83sta)."
+                      class="package-btn btn-primary"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Comandă Instant pe WhatsApp
+                    </a>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <section id="pachete" class="packages-section">
-        <div class="container">
-            <div class="section-title">
-                <h2>Alege câtă magie vrei să aduci</h2>
-                <p>Toate mesajele sunt personalizate. Diferența este în durată, nivelul de detalii și viteza de livrare.</p>
-            </div>
-            <div class="packages">
-                <div class="package">
-                    <div class="package-header basic-bg">
-                        <h3>Basic</h3>
-                        <div class="package-price">39 lei</div>
-                        <p>/ copil</p>
-                    </div>
-                    <div class="package-body">
-                        <ul class="package-features">
-                            <li>Video 30-40 secunde</li>
-                            <li>Numele copilului</li>
-                            <li>Mesaj general de încurajare</li>
-                            <li>Ton cald, specific Crăciunului</li>
-                            <li>Livrare în cel mult 24 de ore</li>
-                        </ul>
-                        <a
-                          href="https://wa.me/40723456789?text=Salut,%20vreau%20s%C4%83%20comand%20pachetul%20Basic%20Glasul%20Mo%C8%99ului.%20Numele%20copilului%20este%20...,%20are%20v%C3%A2rsta%20de%20...,%20iar%20c%C3%A2teva%20detalii%20despre%20el%20sunt%20...%20(hobby-uri,%20gr%C4%83dini%C8%9B%C4%83/%C8%99coal%C4%83,%20ce%20a%20f%C4%83cut%20bine%20anul%20%C4%83sta)."
-                          class="package-btn btn-secondary"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          Comandă Basic pe WhatsApp
-                        </a>
-                    </div>
-                </div>
-
-                <div class="package package-recommended">
-                    <div class="recommended-badge">Recomandat</div>
-                    <div class="package-header magic-bg">
-                        <h3>Magic</h3>
-                        <div class="package-price">79 lei</div>
-                        <p>/ copil</p>
-                    </div>
-                    <div class="package-body">
-                        <ul class="package-features">
-                            <li>Video 60-90 secunde cu Moș Crăciun</li>
-                            <li>Numele copilului rostit clar, de mai multe ori</li>
-                            <li>Detalii din viața lui (hobby-uri, grădiniță, școală)</li>
-                            <li>Ton cald, blând, „ca un bunic”</li>
-                            <li>Livrare în 30-120 de minute</li>
-                        </ul>
-                        <a
-                          href="https://wa.me/40723456789?text=Salut,%20vreau%20s%C4%83%20comand%20pachetul%20Magic%20Glasul%20Mo%C8%99ului.%20Numele%20copilului%20este%20...,%20are%20v%C3%A2rsta%20de%20...,%20iar%20detaliile%20importante%20despre%20el%20sunt%20...%20(hobby-uri,%20gr%C4%83dini%C8%9B%C4%83/%C8%99coal%C4%83,%20ce%20a%20f%C4%83cut%20bine%20anul%20%C4%83sta)."
-                          class="package-btn btn-primary"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          Comandă Magic pe WhatsApp
-                        </a>
-                    </div>
-                </div>
-
-                <div class="package">
-                    <div class="package-header instant-bg">
-                        <h3>Instant</h3>
-                        <div class="package-price">99 lei</div>
-                        <p>/ copil</p>
-                    </div>
-                    <div class="package-body">
-                        <ul class="package-features">
-                            <li>Include toate beneficiile pachetului Magic</li>
-                            <li>Prioritate maximă în coadă</li>
-                            <li>Livrare în 5-15 minute</li>
-                            <li>Perfect pentru momente spontane</li>
-                        </ul>
-                        <a
-                          href="https://wa.me/40723456789?text=Salut,%20vreau%20s%C4%83%20comand%20pachetul%20Instant%20Glasul%20Mo%C8%99ului.%20Am%20nevoie%20de%20video%20c%C3%A2t%20mai%20repede.%20Numele%20copilului%20este%20...,%20are%20v%C3%A2rsta%20de%20...,%20iar%20detaliile%20despre%20el%20sunt%20...%20(hobby-uri,%20gr%C4%83dini%C8%9B%C4%83/%C8%99coal%C4%83,%20ce%20a%20f%C4%83cut%20bine%20anul%20%C4%83sta)."
-                          class="package-btn btn-primary"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          Comandă Instant pe WhatsApp
-                        </a>
-                    </div>
-                </div>
-            </div>
+<section id="testimoniale">
+    <div class="container">
+        <div class="section-title">
+            <h2>Ce spun părinții</h2>
+            <p>Părinți fericiți, copii emoționați</p>
         </div>
-    </section>
-
-    <section id="testimoniale">
-        <div class="container">
-            <div class="section-title">
-                <h2>Ce spun părinții</h2>
-                <p>Părinți fericiți, copii emoționați</p>
-            </div>
-            <div class="testimonials">
-                <div class="testimonial">
-                    <div class="testimonial-text">
-                        "Am comandat mesajul Magic pentru fiica mea de 5 ani. Când l-a văzut, ochii i s-au făcut mari și a început să zâmbească. A fost cel mai frumos cadou pe care i l-am făcut."
-                    </div>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">M</div>
-                        <div class="author-info">
-                            <strong>Mama lui Maria, 5 ani</strong>
-                            <p>Pachet Magic</p>
-                        </div>
-                    </div>
+        <div class="testimonials">
+            <div class="testimonial">
+                <div class="testimonial-text">
+                    "Am comandat mesajul Magic pentru fiica mea de 5 ani. Când l-a văzut, ochii i s-au făcut mari și a început să zâmbească. A fost cel mai frumos cadou pe care i l-am făcut."
                 </div>
-
-                <div class="testimonial">
-                    <div class="testimonial-text">
-                        "Am luat pachetul Instant pentru că fiul meu tocmai îmi spunea că Moșul nu vine la el. Când a primit mesajul, s-a uitat la mine cu ochii plini de mirare. Mulțumesc!"
-                    </div>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">A</div>
-                        <div class="author-info">
-                            <strong>Tata lui Alex, 7 ani</strong>
-                            <p>Pachet Instant</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="testimonial">
-                    <div class="testimonial-text">
-                        "Am făcut mesajul Basic pentru nepoții mei. Au fost atât de încântați să își audă numele din gura Moșului! O experiență unică pe care o vom păstra pentru totdeauna."
-                    </div>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">B</div>
-                        <div class="author-info">
-                            <strong>Bunicul lui Ștefan și Elena</strong>
-                            <p>Pachet Basic</p>
-                        </div>
+                <div class="testimonial-author">
+                    <div class="author-avatar">M</div>
+                    <div class="author-info">
+                        <strong>Mama lui Maria, 5 ani</strong>
+                        <p>Pachet Magic</p>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <section id="faq" class="faq-section">
-        <div class="container">
-            <div class="section-title">
-                <h2>Întrebări frecvente</h2>
-                <p>Răspunsuri la întrebările pe care le au aproape toți părinții</p>
+            <div class="testimonial">
+                <div class="testimonial-text">
+                    "Am luat pachetul Instant pentru că fiul meu tocmai îmi spunea că Moșul nu vine la el. Când a primit mesajul, s-a uitat la mine cu ochii plini de mirare. Mulțumesc!"
+                </div>
+                <div class="testimonial-author">
+                    <div class="author-avatar">A</div>
+                    <div class="author-info">
+                        <strong>Tata lui Alex, 7 ani</strong>
+                        <p>Pachet Instant</p>
+                    </div>
+                </div>
             </div>
 
-            <div class="faq-list">
-                <div class="faq-item">
-                    <div class="faq-question">
-                        Cât de personalizat este mesajul?
-                        <span class="faq-icon">+</span>
-                    </div>
-                    <div class="faq-answer">
-                        Menționăm numele copilului, vârsta și 2-3 detalii reale pe care ni le dai tu (de ex. ce îi place, unde merge, la ce a muncit în ultima perioadă).
-                    </div>
+            <div class="testimonial">
+                <div class="testimonial-text">
+                    "Am făcut mesajul Basic pentru nepoții mei. Au fost atât de încântați să își audă numele din gura Moșului! O experiență unică pe care o vom păstra pentru totdeauna."
                 </div>
-
-                <div class="faq-item">
-                    <div class="faq-question">
-                        Cum primesc mesajul?
-                        <span class="faq-icon">+</span>
-                    </div>
-                    <div class="faq-answer">
-                        Primești un link de descărcare / vizualizare pe WhatsApp sau email, pe care îl poți reda pe televizor, laptop, telefon sau îl poți trimite mai departe familiei.
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question">
-                        Este video-ul generat de AI?
-                        <span class="faq-icon">+</span>
-                    </div>
-                    <div class="faq-answer">
-                        Folosim tehnologie pentru a putea personaliza rapid mesajele, dar tonul și structura sunt gândite ca să sune cald, uman și natural. Nu vrem roboți, vrem emoție.
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question">
-                        Ce se întâmplă dacă nu sunt mulțumit?
-                        <span class="faq-icon">+</span>
-                    </div>
-                    <div class="faq-answer">
-                        Dacă mesajul nu te emoționează sau ți se pare că nu se potrivește copilului tău, îl refacem. Fără discuții inutile.
+                <div class="testimonial-author">
+                    <div class="author-avatar">B</div>
+                    <div class="author-info">
+                        <strong>Bunicul lui Ștefan și Elena</strong>
+                        <p>Pachet Basic</p>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Glasul Moșului</h3>
-                    <p>Mesaje video personalizate de la Moș Crăciun pentru copii și părinți fericiți.</p>
+<section id="faq" class="faq-section">
+    <div class="container">
+        <div class="section-title">
+            <h2>Întrebări frecvente</h2>
+            <p>Răspunsuri la întrebările pe care le au aproape toți părinții</p>
+        </div>
+
+        <div class="faq-list">
+            <div class="faq-item">
+                <div class="faq-question">
+                    Cât de personalizat este mesajul?
+                    <span class="faq-icon">+</span>
                 </div>
-
-                <div class="footer-section">
-                    <h3>Contact</h3>
-                    <p>Email: contact@glasulmosului.ro</p>
-                    <p>Telefon: 0723 456 789</p>
-                </div>
-
-                <div class="footer-section">
-                    <h3>Linkuri utile</h3>
-                    <a href="#cum-functioneaza">Cum funcționează</a>
-                    <a href="#pachete">Pachete</a>
-                    <a href="#testimoniale">Testimoniale</a>
-                    <a href="#faq">Întrebări frecvente</a>
+                <div class="faq-answer">
+                    Menționăm numele copilului, vârsta și 2-3 detalii reale pe care ni le dai tu (de ex. ce îi place, unde merge, la ce a muncit în ultima perioadă).
                 </div>
             </div>
 
-            <div class="footer-bottom">
-                <p>&copy; 2024 Glasul Moșului. Toate drepturile rezervate.</p>
+            <div class="faq-item">
+                <div class="faq-question">
+                    Cum primesc mesajul?
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    Primești un link de descărcare / vizualizare pe WhatsApp sau email, pe care îl poți reda pe televizor, laptop, telefon sau îl poți trimite mai departe familiei.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    Este video-ul generat de AI?
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    Folosim tehnologie pentru a putea personaliza rapid mesajele, dar tonul și structura sunt gândite ca să sune cald, uman și natural. Nu vrem roboți, vrem emoție.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    Ce se întâmplă dacă nu sunt mulțumit?
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    Dacă mesajul nu te emoționează sau ți se pare că nu se potrivește copilului tău, îl refacem. Fără discuții inutile.
+                </div>
             </div>
         </div>
-    </footer>
+    </div>
+</section>
 
-    <script>
-        const menuToggle = document.querySelector('.mobile-menu-toggle');
-        const nav = document.querySelector('nav');
-        const overlay = document.querySelector('.mobile-menu-overlay');
+<footer>
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Glasul Moșului</h3>
+                <p>Mesaje video personalizate de la Moș Crăciun pentru copii și părinți fericiți.</p>
+            </div>
 
-        function toggleMenu() {
-            const isOpening = !nav.classList.contains('active');
-            nav.classList.toggle('active');
-            overlay.classList.toggle('active');
-            document.body.style.overflow = isOpening ? 'hidden' : '';
-        }
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>Email: contact@glasulmosului.ro</p>
+                <p>Telefon: 0723 456 789</p>
+            </div>
 
-        if (menuToggle) {
-            menuToggle.addEventListener('click', toggleMenu);
-        }
+            <div class="footer-section">
+                <h3>Linkuri utile</h3>
+                <a href="#cum-functioneaza">Cum funcționează</a>
+                <a href="#pachete">Pachete</a>
+                <a href="#testimoniale">Testimoniale</a>
+                <a href="#faq">Întrebări frecvente</a>
+            </div>
+        </div>
 
-        if (overlay) {
-            overlay.addEventListener('click', toggleMenu);
-        }
+        <div class="footer-bottom">
+            <p>&copy; 2024 Glasul Moșului. Toate drepturile rezervate.</p>
+        </div>
+    </div>
+</footer>
 
-        document.querySelectorAll('nav a').forEach(link => {
-            link.addEventListener('click', () => {
-                nav.classList.remove('active');
-                overlay.classList.remove('active');
-                document.body.style.overflow = '';
-            });
+<script>
+    const menuToggle = document.querySelector('.mobile-menu-toggle');
+    const mobileNav = document.querySelector('.mobile-nav');
+
+    function toggleMenu() {
+        const isOpening = !mobileNav.classList.contains('active');
+        mobileNav.classList.toggle('active');
+        document.body.style.overflow = isOpening ? 'hidden' : '';
+    }
+
+    if (menuToggle) {
+        menuToggle.addEventListener('click', toggleMenu);
+    }
+
+    document.querySelectorAll('.mobile-nav a').forEach(link => {
+        link.addEventListener('click', () => {
+            mobileNav.classList.remove('active');
+            document.body.style.overflow = '';
         });
+    });
 
-        document.querySelectorAll('.faq-question').forEach(question => {
-            question.addEventListener('click', () => {
-                const item = question.parentElement;
-                const isActive = item.classList.contains('active');
-                document.querySelectorAll('.faq-item').forEach(el => el.classList.remove('active'));
-                if (!isActive) item.classList.add('active');
-            });
+    document.querySelectorAll('.faq-question').forEach(question => {
+        question.addEventListener('click', () => {
+            const item = question.parentElement;
+            const isActive = item.classList.contains('active');
+            document.querySelectorAll('.faq-item').forEach(el => el.classList.remove('active'));
+            if (!isActive) item.classList.add('active');
         });
+    });
 
-        document.addEventListener('DOMContentLoaded', function() {
-            const heroElements = document.querySelectorAll('.hero h2, .hero p, .hero .btn');
-            heroElements.forEach((el, index) => {
-                el.style.animationDelay = `${index * 0.3}s`;
-            });
+    document.addEventListener('DOMContentLoaded', function() {
+        const heroElements = document.querySelectorAll('.hero h2, .hero p, .hero .btn');
+        heroElements.forEach((el, index) => {
+            el.style.animationDelay = `${index * 0.3}s`;
         });
-    </script>
+    });
+</script>
 </body>
 </html>
