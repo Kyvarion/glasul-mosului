@@ -29,11 +29,9 @@
             padding: 0 20px;
         }
 
+        /* HEADER cu imagine Moș Crăciun pe DESKTOP */
         header {
-            background: linear-gradient(135deg, rgba(220, 0, 0, 0.92), rgba(170, 0, 0, 0.98)),
-                        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="600" viewBox="0 0 1200 600"><defs><pattern id="snow" patternUnits="userSpaceOnUse" width="50" height="50"><circle cx="25" cy="25" r="2" fill="white" opacity="0.7"/></pattern></defs><rect width="1200" height="600" fill="%23b80000"/><rect width="1200" height="600" fill="url(%23snow)"/><path d="M300,200 Q500,100 700,200 T1100,200" stroke="%23fff" stroke-width="3" fill="none" opacity="0.3"/><path d="M250,250 Q450,150 650,250 T1050,250" stroke="%23fff" stroke-width="3" fill="none" opacity="0.3"/><path d="M200,300 Q400,200 600,300 T1000,300" stroke="%23fff" stroke-width="3" fill="none" opacity="0.3"/></svg>');
-            background-size: cover;
-            background-position: center;
+            background: url('mos-craciun-desktop.jpg') center right / cover no-repeat;
             color: white;
             padding: 15px 0 80px;
             position: relative;
@@ -46,7 +44,9 @@
         .header-overlay {
             position: absolute;
             inset: 0;
-            background: radial-gradient(circle at 70% 30%, rgba(255,255,255,0.15), transparent 60%);
+            background:
+                linear-gradient(90deg, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.4) 30%, rgba(0,0,0,0.1) 60%, rgba(0,0,0,0) 100%),
+                radial-gradient(circle at 70% 30%, rgba(255,255,255,0.15), transparent 60%);
             pointer-events: none;
         }
 
@@ -171,7 +171,7 @@
         .hero h2 {
             font-size: 3.5rem;
             margin-bottom: 20px;
-            text-shadow: 3px 3px 6px rgba(0,0,0,0.4);
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.6);
             line-height: 1.1;
             font-weight: 800;
             background: linear-gradient(45deg, #fff, #ffebee, #fff);
@@ -184,21 +184,21 @@
 
         @keyframes titleGlow {
             0%, 100% {
-                text-shadow: 3px 3px 6px rgba(0,0,0,0.4), 0 0 20px rgba(255,255,255,0.3);
+                text-shadow: 3px 3px 6px rgba(0,0,0,0.6), 0 0 20px rgba(255,255,255,0.3);
             }
             50% {
-                text-shadow: 3px 3px 6px rgba(0,0,0,0.4), 0 0 30px rgba(255,255,255,0.6);
+                text-shadow: 3px 3px 6px rgba(0,0,0,0.6), 0 0 30px rgba(255,255,255,0.7);
             }
         }
 
         .hero p {
             font-size: 1.3rem;
             margin-bottom: 30px;
-            opacity: 0.95;
+            opacity: 0.98;
             font-weight: 400;
             line-height: 1.5;
             animation: fadeInUp 1s ease 0.5s both;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
         }
 
         .btn {
@@ -212,7 +212,7 @@
             font-size: 1.1rem;
             transition: all 0.3s;
             border: 2px solid transparent;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
             position: relative;
             overflow: hidden;
             animation: fadeInUp 1s ease 0.8s both, pulse 2s ease 1.8s infinite;
@@ -221,15 +221,15 @@
         @keyframes pulse {
             0% {
                 transform: scale(1);
-                box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+                box-shadow: 0 8px 20px rgba(0,0,0,0.4);
             }
             50% {
                 transform: scale(1.05);
-                box-shadow: 0 12px 25px rgba(0,0,0,0.4);
+                box-shadow: 0 12px 25px rgba(0,0,0,0.5);
             }
             100% {
                 transform: scale(1);
-                box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+                box-shadow: 0 8px 20px rgba(0,0,0,0.4);
             }
         }
 
@@ -237,7 +237,7 @@
             background: #c00;
             color: white;
             transform: translateY(-3px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.6);
             animation: none;
         }
 
@@ -248,72 +248,12 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.6), transparent);
             transition: left 0.5s;
         }
 
         .btn:hover::before {
             left: 100%;
-        }
-
-        .header-visual {
-            position: absolute;
-            right: 5%;
-            bottom: 0;
-            width: 400px;
-            height: 500px;
-            z-index: 5;
-            display: flex;
-            align-items: flex-end;
-            justify-content: center;
-        }
-
-        .santa-container {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            align-items: flex-end;
-            justify-content: center;
-        }
-
-        .santa-image {
-            width: 100%;
-            height: auto;
-            max-height: 90%;
-            object-fit: contain;
-            filter: drop-shadow(0 20px 40px rgba(0,0,0,0.6));
-            animation: float 6s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0px);
-            }
-            50% {
-                transform: translateY(-20px);
-            }
-        }
-
-        .santa-glow {
-            position: absolute;
-            bottom: 0;
-            width: 80%;
-            height: 50px;
-            background: radial-gradient(ellipse at center, rgba(255,255,255,0.4) 0%, transparent 70%);
-            filter: blur(10px);
-            animation: glowPulse 4s ease-in-out infinite;
-        }
-
-        @keyframes glowPulse {
-            0%, 100% {
-                opacity: 0.6;
-                transform: scale(1);
-            }
-            50% {
-                opacity: 0.8;
-                transform: scale(1.1);
-            }
         }
 
         @keyframes fadeInUp {
@@ -802,15 +742,20 @@
             opacity: 0.8;
         }
 
-        /* NAV MOBIL FULLSCREEN SEPARAT */
+        /* NAV MOBIL FULLSCREEN SEPARAT, fără Moș pe mobil */
         .mobile-nav {
             display: none;
         }
 
         @media (max-width: 768px) {
+            /* pe mobil scoatem imaginea cu Moș și punem gradient roșu simplu */
             header {
-                min-height: 100vh;
+                background: linear-gradient(135deg, rgba(220, 0, 0, 0.96), rgba(170, 0, 0, 0.98));
                 padding: 12px 0 40px;
+            }
+
+            .header-overlay {
+                background: radial-gradient(circle at 50% 0%, rgba(255,255,255,0.12), transparent 60%);
             }
 
             .mobile-menu-toggle {
@@ -824,7 +769,7 @@
             .mobile-nav {
                 position: fixed;
                 inset: 0;
-                background-color: #9b0000; /* FULL OPAC, doar meniul se vede */
+                background-color: #9b0000;
                 display: none;
                 flex-direction: column;
                 justify-content: flex-start;
@@ -907,10 +852,6 @@
             .btn {
                 font-size: 1rem;
                 padding: 14px 28px;
-            }
-
-            .header-visual {
-                display: none;
             }
 
             section {
@@ -1005,13 +946,6 @@
             <h2>Glasul Moșului<br>ajunge direct la<br>copilul tău</h2>
             <p>Un mesaj video autentic de la Moș Crăciun, cu numele copilului și detalii reale din viața lui. <strong>Emoție pură, exact când ai nevoie.</strong></p>
             <a href="#pachete" class="btn">Alege pachetul potrivit</a>
-        </div>
-
-        <div class="header-visual">
-            <div class="santa-container">
-                <div class="santa-glow"></div>
-                <img src="mos-craciun.png" alt="Moș Crăciun" class="santa-image">
-            </div>
         </div>
     </div>
 </header>
