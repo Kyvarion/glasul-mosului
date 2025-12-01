@@ -42,6 +42,10 @@
             position: relative;
         }
 
+        body.terms-open {
+            overflow: hidden;
+        }
+
         body::before {
             content: '';
             position: fixed;
@@ -57,6 +61,225 @@
             z-index: -1;
         }
 
+        /* ===== POP-UP TERMENI SIMPLU ===== */
+        .terms-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.92);
+            backdrop-filter: blur(10px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 99999;
+            padding: 20px;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+
+        .terms-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .terms-modal {
+            background: white;
+            border-radius: 20px;
+            max-width: 500px;
+            width: 100%;
+            overflow: hidden;
+            box-shadow: 
+                0 20px 40px rgba(0, 0, 0, 0.3),
+                0 0 0 2px var(--gold);
+            border: 3px solid var(--dark-red);
+            transform: translateY(30px);
+            opacity: 0;
+            transition: transform 0.5s ease, opacity 0.5s ease;
+        }
+
+        .terms-overlay.active .terms-modal {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .terms-header {
+            background: linear-gradient(135deg, var(--dark-red) 0%, var(--primary-red) 100%);
+            padding: 25px;
+            text-align: center;
+            border-bottom: 4px solid var(--gold);
+        }
+
+        .terms-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--gold);
+            margin-bottom: 10px;
+            font-weight: 900;
+        }
+
+        .terms-header p {
+            color: var(--cream);
+            font-size: 1rem;
+        }
+
+        .terms-content {
+            padding: 30px;
+            text-align: center;
+        }
+
+        .terms-icon {
+            font-size: 3rem;
+            color: var(--dark-red);
+            margin-bottom: 20px;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .terms-text {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 25px;
+            color: var(--charcoal);
+        }
+
+        .terms-links {
+            margin: 25px 0;
+            padding: 20px;
+            background: rgba(255, 215, 0, 0.1);
+            border-radius: 10px;
+            border: 1px solid rgba(255, 215, 0, 0.3);
+        }
+
+        .terms-links a {
+            display: block;
+            color: var(--dark-red);
+            text-decoration: none;
+            font-weight: 600;
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 8px;
+            transition: var(--transition);
+        }
+
+        .terms-links a:hover {
+            background: rgba(178, 34, 34, 0.1);
+            transform: translateX(5px);
+        }
+
+        .terms-links a i {
+            margin-right: 10px;
+            color: var(--gold);
+        }
+
+        .terms-checkbox {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin: 25px 0;
+        }
+
+        .terms-checkbox input[type="checkbox"] {
+            width: 22px;
+            height: 22px;
+            accent-color: var(--dark-red);
+            cursor: pointer;
+            transform: scale(1.2);
+        }
+
+        .terms-checkbox label {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--dark-red);
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .terms-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .terms-btn {
+            flex: 1;
+            padding: 15px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            font-family: 'Inter', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .terms-btn-accept {
+            background: linear-gradient(135deg, var(--dark-green), var(--forest-green));
+            color: white;
+            border: 2px solid var(--forest-green);
+        }
+
+        .terms-btn-accept:hover:not(:disabled) {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(10, 92, 54, 0.3);
+        }
+
+        .terms-btn-decline {
+            background: transparent;
+            color: var(--dark-red);
+            border: 2px solid var(--light-red);
+        }
+
+        .terms-btn-decline:hover {
+            background: var(--light-red);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .terms-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none !important;
+            box-shadow: none !important;
+        }
+
+        /* Iconița pentru termeni în colț */
+        .terms-corner-icon {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, var(--dark-red), var(--primary-red));
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: var(--shadow-medium);
+            z-index: 9999;
+            transition: var(--transition);
+            border: 2px solid var(--gold);
+        }
+
+        .terms-corner-icon:hover {
+            transform: scale(1.1) rotate(15deg);
+        }
+
+        /* ===== RESTUL CODULUI TĂU EXISTENT (Rămâne la fel) ===== */
         /* Header Stil Nou */
         header {
             position: relative;
@@ -1472,6 +1695,19 @@
             .package-recommended:hover {
                 transform: translateY(-15px);
             }
+            
+            /* Pop-up responsive */
+            .terms-modal {
+                max-width: 95%;
+            }
+            
+            .terms-header h2 {
+                font-size: 1.8rem;
+            }
+            
+            .terms-buttons {
+                flex-direction: column;
+            }
         }
 
         @media (max-width: 768px) {
@@ -1566,6 +1802,23 @@
             .price-option {
                 width: 100%;
             }
+            
+            /* Pop-up mobile */
+            .terms-content {
+                padding: 20px;
+            }
+            
+            .terms-icon {
+                font-size: 2.5rem;
+            }
+            
+            .terms-corner-icon {
+                bottom: 15px;
+                right: 15px;
+                width: 45px;
+                height: 45px;
+                font-size: 1.3rem;
+            }
         }
 
         @media (max-width: 480px) {
@@ -1616,10 +1869,71 @@
                 grid-template-columns: 1fr;
                 gap: 40px;
             }
+            
+            /* Pop-up mobile mic */
+            .terms-header {
+                padding: 20px;
+            }
+            
+            .terms-header h2 {
+                font-size: 1.6rem;
+            }
+            
+            .terms-text {
+                font-size: 1rem;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- POP-UP TERMENI SIMPLU -->
+    <div class="terms-overlay" id="termsOverlay">
+        <div class="terms-modal">
+            <div class="terms-header">
+                <h2>Termeni și Condiții</h2>
+                <p>Te rugăm să citești înainte de a continua</p>
+            </div>
+            
+            <div class="terms-content">
+                <div class="terms-icon">
+                    <i class="fas fa-file-contract"></i>
+                </div>
+                
+                <div class="terms-text">
+                    <p>Pentru a utiliza serviciile noastre, te rugăm să accepți termenii și condițiile noastre de utilizare.</p>
+                </div>
+                
+                <div class="terms-links">
+                    <a href="#" id="readTerms">
+                        <i class="fas fa-book-open"></i> Citește Termenii și Condițiile
+                    </a>
+                    <a href="#" id="readPrivacy">
+                        <i class="fas fa-shield-alt"></i> Citește Politica de Confidențialitate
+                    </a>
+                </div>
+                
+                <div class="terms-checkbox">
+                    <input type="checkbox" id="acceptTerms">
+                    <label for="acceptTerms">Am citit și sunt de acord cu termenii și condițiile</label>
+                </div>
+                
+                <div class="terms-buttons">
+                    <button class="terms-btn terms-btn-decline" id="declineTerms">
+                        <i class="fas fa-times"></i> Refuz
+                    </button>
+                    <button class="terms-btn terms-btn-accept" id="acceptTermsBtn" disabled>
+                        <i class="fas fa-check"></i> Accept
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Iconița pentru termeni în colț -->
+    <div class="terms-corner-icon" id="termsIcon" title="Termeni și Condiții">
+        <i class="fas fa-file-contract"></i>
+    </div>
+
     <!-- Header -->
     <header>
         <!-- Animație luminișoare -->
@@ -2084,7 +2398,7 @@
                 <a href="#pachete"><i class="fas fa-arrow-right"></i> Pachete</a>
                 <a href="#testimoniale"><i class="fas fa-arrow-right"></i> Testimoniale</a>
                 <a href="#faq"><i class="fas fa-arrow-right"></i> Întrebări frecvente</a>
-                <a href="termeni-si-conditii.html"><i class="fas fa-file-contract"></i> Termeni și condiții</a>
+                <a href="#" id="showTermsFooter"><i class="fas fa-file-contract"></i> Termeni și condiții</a>
             </div>
         </div>
 
@@ -2094,6 +2408,103 @@
     </footer>
 
     <script>
+        // ===== FUNCȚIONALITATE POP-UP TERMENI SIMPLU =====
+        const termsOverlay = document.getElementById('termsOverlay');
+        const acceptTermsCheckbox = document.getElementById('acceptTerms');
+        const acceptTermsBtn = document.getElementById('acceptTermsBtn');
+        const declineTermsBtn = document.getElementById('declineTerms');
+        const termsIcon = document.getElementById('termsIcon');
+        const showTermsFooter = document.getElementById('showTermsFooter');
+        const readTermsLink = document.getElementById('readTerms');
+        const readPrivacyLink = document.getElementById('readPrivacy');
+        
+        // Verifică dacă utilizatorul a acceptat deja termenii
+        function hasAcceptedTerms() {
+            return localStorage.getItem('glasulMosuluiTermsAccepted') === 'true';
+        }
+        
+        // Salvează acceptarea în localStorage
+        function saveTermsAcceptance() {
+            localStorage.setItem('glasulMosuluiTermsAccepted', 'true');
+            localStorage.setItem('glasulMosuluiTermsAcceptedDate', new Date().toISOString());
+        }
+        
+        // Arată pop-up-ul
+        function showTermsOverlay() {
+            document.body.classList.add('terms-open');
+            termsOverlay.classList.add('active');
+        }
+        
+        // Ascunde pop-up-ul
+        function hideTermsOverlay() {
+            document.body.classList.remove('terms-open');
+            termsOverlay.classList.remove('active');
+        }
+        
+        // Eveniment pentru checkbox
+        acceptTermsCheckbox.addEventListener('change', function() {
+            acceptTermsBtn.disabled = !this.checked;
+        });
+        
+        // Eveniment pentru butonul Accept
+        acceptTermsBtn.addEventListener('click', function() {
+            if (acceptTermsCheckbox.checked) {
+                saveTermsAcceptance();
+                hideTermsOverlay();
+                
+                // Animație de confirmare
+                const originalText = this.innerHTML;
+                this.innerHTML = '<i class="fas fa-check-circle"></i> Acceptat!';
+                this.style.background = 'linear-gradient(135deg, #0A5C36, #228B22)';
+                
+                setTimeout(() => {
+                    this.innerHTML = originalText;
+                    this.style.background = 'linear-gradient(135deg, var(--dark-green), var(--forest-green))';
+                }, 1500);
+            }
+        });
+        
+        // Eveniment pentru butonul Refuz
+        declineTermsBtn.addEventListener('click', function() {
+            // Redirecționează către Google dacă refuză
+            window.location.href = 'https://www.google.com';
+        });
+        
+        // Eveniment pentru iconița termeni
+        termsIcon.addEventListener('click', showTermsOverlay);
+        
+        // Eveniment pentru link-ul din footer
+        showTermsFooter.addEventListener('click', function(e) {
+            e.preventDefault();
+            showTermsOverlay();
+        });
+        
+        // Eveniment pentru linkul "Citește Termenii"
+        readTermsLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            // Deschide într-o fereastră nouă sau într-un tab
+            window.open('termeni-si-conditii.html', '_blank');
+        });
+        
+        // Eveniment pentru linkul "Citește Politica"
+        readPrivacyLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            // Deschide într-o fereastră nouă sau într-un tab
+            window.open('politica-confidentialitate.html', '_blank');
+        });
+        
+        // Verifică la încărcare dacă trebuie afișat pop-up-ul
+        document.addEventListener('DOMContentLoaded', () => {
+            // Dacă nu a acceptat termenii, arată pop-up-ul după 1 secundă
+            setTimeout(() => {
+                if (!hasAcceptedTerms()) {
+                    showTermsOverlay();
+                }
+            }, 1000);
+        });
+        
+        // ===== RESTUL FUNCȚIONALITĂȚILOR EXISTENTE =====
+        
         // Generare luminișoare
         function createTwinklingLights() {
             const container = document.getElementById('twinklingLights');
