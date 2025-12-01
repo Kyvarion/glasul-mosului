@@ -161,6 +161,51 @@
             color: var(--dark-red);
         }
 
+        /* Program lucru */
+        .schedule-box {
+            background: linear-gradient(135deg, rgba(139, 0, 0, 0.05) 0%, rgba(255, 215, 0, 0.05) 100%);
+            border: 2px solid var(--gold);
+            border-radius: 10px;
+            padding: 25px;
+            margin: 25px 0;
+        }
+
+        .schedule-box h4 {
+            color: var(--dark-red);
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .schedule-box h4 i {
+            color: var(--gold);
+        }
+
+        .schedule-box ul {
+            margin: 0;
+            list-style: none;
+        }
+
+        .schedule-box li {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(139, 0, 0, 0.1);
+        }
+
+        .schedule-box li:last-child {
+            border-bottom: none;
+        }
+
+        .schedule-box li i {
+            color: var(--gold);
+            width: 25px;
+            text-align: center;
+        }
+
         /* Tabel pentru prețuri */
         .price-table {
             width: 100%;
@@ -283,8 +328,30 @@
             </div>
 
             <div class="terms-section">
-                <h2>2. Procesul de comandă</h2>
-                <h3>2.1 Completarea datelor</h3>
+                <h2>2. Program de lucru și timpi de livrare</h2>
+                
+                <div class="schedule-box">
+                    <h4><i class="fas fa-clock"></i> Program de lucru pentru producția video-urilor</h4>
+                    <ul>
+                        <li><i class="fas fa-calendar-day"></i> <strong>Luni - Duminică:</strong> 09:00 - 17:00</li>
+                        <li><i class="fas fa-video"></i> Toate video-urile sunt create manual, personalizat pentru fiecare copil</li>
+                        <li><i class="fas fa-business-time"></i> Timpii de livrare menționați se aplică doar în intervalul orar 9:00 - 17:00</li>
+                    </ul>
+                </div>
+
+                <h3>2.1 Comenzi în afara programului de lucru</h3>
+                <p>Pentru comenzile plasate în afara intervalului orar 9:00 - 17:00, timpii de livrare pot fi afectați:</p>
+                <ul>
+                    <li>Comenzile plasate după ora 17:00 vor fi preluate a doua zi dimineață, începând cu ora 9:00</li>
+                    <li>Comenzile plasate în weekend (sâmbătă și duminică) vor fi preluate în intervalul orar 9:00 - 17:00</li>
+                    <li>Pentru pachetul <strong>Instant</strong> comandat în afara programului, timpul de livrare poate depăși 15 minute</li>
+                </ul>
+
+                <div class="highlight">
+                    <p><i class="fas fa-exclamation-triangle"></i> <strong>Important:</strong> Deoarece fiecare video este creat manual și personalizat pentru copilul dumneavoastră, timpii exacti de livrare pot varia în funcție de complexitatea comenzii și volumul de cereri.</p>
+                </div>
+
+                <h3>2.2 Procesul de comandă</h3>
                 <p>La plasarea unei comenzi, vi se va cere să furnizați:</p>
                 <ul>
                     <li>Numele complet al copilului</li>
@@ -294,7 +361,7 @@
                     <li>Număr de telefon pentru confirmare (opțional)</li>
                 </ul>
 
-                <h3>2.2 Prețuri și plăți</h3>
+                <h3>2.3 Prețuri și plăți</h3>
                 <p>Prețurile serviciilor noastre sunt afișate în RON (Lei românești) și includ TVA.</p>
                 
                 <table class="price-table">
@@ -303,7 +370,8 @@
                             <th>Pachet</th>
                             <th>Preț</th>
                             <th>Durata video</th>
-                            <th>Timp livrare</th>
+                            <th>Timp livrare*</th>
+                            <th>Notă</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -312,21 +380,27 @@
                             <td>39 RON</td>
                             <td>1-2 minute</td>
                             <td>24 ore</td>
+                            <td>În intervalul 9:00-17:00</td>
                         </tr>
                         <tr>
                             <td>Magic</td>
                             <td>69 RON</td>
                             <td>3-4 minute</td>
                             <td>2 ore</td>
+                            <td>În intervalul 9:00-17:00</td>
                         </tr>
                         <tr>
                             <td>Instant</td>
                             <td>89 RON</td>
                             <td>3-4 minute</td>
                             <td>15 minute</td>
+                            <td>În intervalul 9:00-17:00**</td>
                         </tr>
                     </tbody>
                 </table>
+
+                <p>*Timpii de livrare se aplică doar în intervalul orar 9:00 - 17:00, de luni până duminică.</p>
+                <p>**Pentru pachetul Instant comandat în afara programului, timpul de livrare poate fi mai mare de 15 minute.</p>
 
                 <p>Plata se realizează online prin intermediul platformei Stripe. Toate plățile sunt securizate și procesate de serviciile de plată ale terților.</p>
             </div>
@@ -360,7 +434,7 @@
                 <h3>4.2 Rambursări</h3>
                 <p>Rambursările sunt acordate doar în următoarele situații:</p>
                 <ul>
-                    <li>Dacă videoclipul nu a fost livrat în termenul promis</li>
+                    <li>Dacă videoclipul nu a fost livrat în termenul promis (ținând cont de programul nostru de lucru)</li>
                     <li>Dacă există o eroare tehnică majoră care face videoclipul inutilizabil</li>
                     <li>Dacă ați anulat comanda înainte ca producția videoclipului să înceapă</li>
                 </ul>
@@ -371,6 +445,7 @@
                     <li>Dacă ați furnizat informații incorecte</li>
                     <li>Dacă copilul nu a avut reacția așteptată</li>
                     <li>Dacă ați schimbat decizia după începerea producției</li>
+                    <li>Dacă întârzierea este cauzată de plasarea comenzii în afara programului de lucru</li>
                 </ul>
             </div>
 
@@ -406,17 +481,24 @@
                     <li>Probleme tehnice din partea dispozitivului dumneavoastră</li>
                     <li>Pierderea accesului la videoclip din cauza problemelor de stocare personală</li>
                     <li>Întârzieri cauzate de factori externi (pierdere de conexiune internet, probleme la procesatorul de plăți, etc.)</li>
+                    <li>Întârzieri cauzate de plasarea comenzii în afara programului de lucru (9:00 - 17:00)</li>
                 </ul>
             </div>
 
             <div class="terms-section">
-                <h2>7. Contact</h2>
-                <p>Pentru orice întrebări legate de acești termeni și condiții, vă rugăm să ne contactați:</p>
-                <ul>
-                    <li><strong>Email:</strong> contact@glasulmosului.ro</li>
-                    <li><strong>Telefon:</strong> 0723 456 789</li>
-                    <li><strong>Program:</strong> Luni - Duminică, 9:00 - 20:00</li>
-                </ul>
+                <h2>7. Contact și asistență</h2>
+                
+                <div class="schedule-box">
+                    <h4><i class="fas fa-headset"></i> Asistență clienți</h4>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> <strong>Email:</strong> glasulmosului@gmail.com</li>
+                        <li><i class="fas fa-phone"></i> <strong>Telefon:</strong> 0745093730</li>
+                        <li><i class="fas fa-clock"></i> <strong>Program asistență:</strong> Luni - Duminică, 9:00 - 20:00</li>
+                        <li><i class="fas fa-video"></i> <strong>Program producție video:</strong> Luni - Duminică, 9:00 - 17:00</li>
+                    </ul>
+                </div>
+
+                <p>Pentru întrebări legate de statusul comenzilor sau asistență tehnică, vă rugăm să ne contactați în intervalul orar specificat.</p>
             </div>
 
             <div class="terms-section">
@@ -428,8 +510,7 @@
 
         <!-- Footer -->
         <div class="terms-footer">
-            <p><strong>Glasul Moșului SRL</strong></p>
-            <p>CUI: RO12345678 | J40/1234/2024</p>
+            <p><strong>Glasul Moșului </strong></p>
             <p>© 2024 Glasul Moșului. Toate drepturile rezervate.</p>
         </div>
     </div>
@@ -445,6 +526,18 @@
         // Adaugă cursor pointer la heading-uri
         document.querySelectorAll('.terms-section h2, .terms-section h3').forEach(heading => {
             heading.style.cursor = 'pointer';
+        });
+
+        // Animație pentru highlight boxes
+        document.querySelectorAll('.highlight, .schedule-box').forEach(box => {
+            box.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-5px)';
+                this.style.transition = 'transform 0.3s ease';
+            });
+            
+            box.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
         });
     </script>
 </body>
