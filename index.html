@@ -662,6 +662,61 @@
             opacity: 0.9;
         }
 
+        /* CHANGED: Styles for packages section subtitle */
+        .packages-section .section-title p {
+            font-size: 1.4rem;
+            max-width: 800px;
+            margin: 0 auto;
+            font-weight: 400;
+            line-height: 1.6;
+            
+            /* Schimbă culoarea textului */
+            color: #B22222; /* Roșu închis ca accent */
+            
+            /* Adaugă un chenar subtil */
+            border: 2px solid rgba(255, 215, 0, 0.3); /* Chenar auriu subtil */
+            border-radius: 15px;
+            padding: 25px 35px;
+            background: linear-gradient(135deg, 
+                rgba(255, 248, 220, 0.9) 0%, 
+                rgba(255, 255, 255, 0.95) 100%);
+            
+            /* Adaugă umbră pentru adâncime */
+            box-shadow: 0 8px 25px rgba(178, 34, 34, 0.1);
+            
+            /* Adaugă un gradient de fundal */
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Efect de luminișoare în fundal */
+        .packages-section .section-title p::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, 
+                rgba(255, 215, 0, 0.1) 1px, 
+                transparent 1px);
+            background-size: 50px 50px;
+            opacity: 0.4;
+            animation: snowDrift 20s linear infinite;
+            z-index: 0;
+        }
+
+        @keyframes snowDrift {
+            0% { transform: translateY(0) translateX(0); }
+            100% { transform: translateY(100px) translateX(100px); }
+        }
+
+        /* Textul peste fundal */
+        .packages-section .section-title p {
+            position: relative;
+            z-index: 1;
+        }
+
         /* Steps Section */
         .steps {
             display: grid;
@@ -1422,6 +1477,12 @@
                 font-size: 1.2rem;
             }
             
+            .packages-section .section-title p {
+                font-size: 1.2rem;
+                padding: 20px 25px;
+                margin: 0 10px;
+            }
+            
             .steps, .packages, .testimonials {
                 grid-template-columns: 1fr;
             }
@@ -1473,6 +1534,11 @@
             
             .section-title h2 {
                 font-size: 1.8rem;
+            }
+            
+            .packages-section .section-title p {
+                font-size: 1.1rem;
+                padding: 15px 20px;
             }
             
             .package-body {
@@ -1581,7 +1647,7 @@
         </div>
     </div>
 
-    <!-- Restul conținutului site-ului rămâne același ca în original -->
+    <!-- Cum funcționează Section -->
     <section id="cum-functioneaza">
         <div class="container">
             <div class="section-title">
@@ -1608,6 +1674,7 @@
         </div>
     </section>
 
+    <!-- Pachete Section -->
     <section id="pachete" class="packages-section">
         <div class="container">
             <div class="section-title">
@@ -1693,6 +1760,7 @@
         </div>
     </section>
 
+    <!-- Testimoniale Section -->
     <section id="testimoniale" class="testimonials-section">
         <div class="container">
             <div class="section-title">
@@ -1742,6 +1810,7 @@
         </div>
     </section>
 
+    <!-- FAQ Section -->
     <section id="faq" class="faq-section">
         <div class="container">
             <div class="section-title">
@@ -1793,6 +1862,7 @@
         </div>
     </section>
 
+    <!-- Footer -->
     <footer>
         <div class="footer-content">
             <div class="footer-section">
@@ -1812,6 +1882,8 @@
                 <a href="#pachete"><i class="fas fa-arrow-right"></i> Pachete</a>
                 <a href="#testimoniale"><i class="fas fa-arrow-right"></i> Testimoniale</a>
                 <a href="#faq"><i class="fas fa-arrow-right"></i> Întrebări frecvente</a>
+                <!-- LINKUL PENTRU TERMENI ȘI CONDIȚII -->
+                <a href="termeni-si-conditii.html"><i class="fas fa-file-contract"></i> Termeni și condiții</a>
             </div>
         </div>
 
